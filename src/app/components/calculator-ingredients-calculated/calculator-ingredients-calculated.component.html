@@ -1,0 +1,31 @@
+<h2 id="ingredientes_titulo">Ingredientes Calculados</h2>
+
+Numero comensales: {{ diners }}
+<button (click)="addDiner()"> + </button>
+<button (click)="discDiner()"> - </button>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <ul>
+        <li *ngFor="let item of recipeCalc">{{ item.name }}</li>
+      </ul>
+    </div>
+    <div class="col">
+      <ul>
+        <li *ngFor="let item of recipeCalc">{{ item.quantity }}</li>
+      </ul>
+    </div>
+    <div class="col" *ngIf="getCalcPrice()">
+      <ul>
+        <li *ngFor="let item of recipeCalc">{{ item.price }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="col" *ngIf="getCalcPrice()">
+  <h3>Precio total: {{ getTotalPrice() }} €</h3>
+  <h3>Precio por persona: {{ getUnitPrice() }} €</h3>
+</div>
+<a routerLink="/" class="data m-3">Volver</a>
+

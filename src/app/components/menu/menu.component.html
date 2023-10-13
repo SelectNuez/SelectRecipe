@@ -1,0 +1,24 @@
+<nav>
+  <div class="item" *ngIf="user | async">
+    <a routerLink="/recipes" class="data">Mis recetas</a>
+  </div>
+  <div class="item" *ngIf="user | async">
+    <a routerLink="/ingredients" class="data"> Mis ingredientes </a>
+  </div>
+  <div class="item">
+    <a routerLink="/calculator" class="data"> Calculadora </a>
+  </div>
+  <div class="item">
+    <a routerLink="/about" class="data"> Sobre nosotros </a>
+  </div>
+  <div class="item" *ngIf="!(user | async)">
+    <a routerLink="/login" class="data" > Login </a>
+  </div>
+  <div class="item" *ngIf="user | async">
+    <button (click)="logout()" class="data">
+      Logout
+    </button>
+  </div>
+
+  <div id="alertReg"></div>
+</nav>

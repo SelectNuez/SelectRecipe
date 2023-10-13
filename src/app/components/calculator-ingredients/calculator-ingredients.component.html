@@ -1,0 +1,70 @@
+<h2 id="ingredientes_titulo">Ingredientes Originales</h2>
+<div class="container">
+  <form
+    class="row align-items-start"
+    [formGroup]="formIngredients"
+    (ngSubmit)="newIngredient()"
+  >
+    <div class="col">
+      <div class="ingredientTitle">Ingrediente</div>
+      <input type="text" name="name" id="name" formControlName="name"/>
+      <div *ngIf="formIngredients.get('name').hasError('required') && showErrorMsg">
+        El nombre no puede estar vacio
+      </div>
+    </div>
+    <div class="col">
+      <div class="ingredientTitle">Cantidad</div>
+      <input type="number" name="quantity" id="quantity" formControlName="quantity" />
+      <div *ngIf="formIngredients.get('quantity').hasError('required') && showErrorMsg">
+        Introduce una cantidad.
+      </div>
+      <div *ngIf="formIngredients.get('quantity').hasError('min')">
+        La cantidad debe ser mayor que 0.
+      </div>
+    </div>
+    <div *ngIf="getCalcPrice()" class="col">
+      <div class="ingredientTitle">Precio</div>
+      <input type="number" name="price" id="price" formControlName="price" />
+      <div *ngIf="formIngredients.get('price').hasError('required') && showErrorMsg">
+        Introduce un precio.
+      </div>
+      <div *ngIf="formIngredients.get('price').hasError('min')">
+        El precio debe ser mayor que 0.
+      </div>
+    </div>
+    <button type="submit">Nuevo Ingrediente</button>
+  </form>
+</div>
+<!-- Añadir un componente para los ingredientes? -->
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <ul>
+        <li *ngFor="let item of recipe">{{ item.name }}</li>
+      </ul>
+    </div>
+    <div class="col">
+      <ul>
+        <li *ngFor="let item of recipe">{{ item.quantity }}</li>
+      </ul>
+    </div>
+    <div class="col" *ngIf="getCalcPrice()">
+      <ul>
+        <li *ngFor="let item of recipe">{{ item.price }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="precioTotal"></div>
+
+<button id="calculate" (click)="saveRecipe()">
+  Calcular
+</button>
+
+<button onclick="location.reload()">Volver a empezar</button>
+<a routerLink="/" class="data m-3">Volver</a>
+
+<div class="notes">Si no deseas calcular el precio deja ese campo vacio</div>
+
+<div id="alerts"></div>
