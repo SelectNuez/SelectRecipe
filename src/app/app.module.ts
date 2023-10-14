@@ -23,6 +23,7 @@ import { environment } from '../environments/environment';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes = [
   { path: 'about', component: AboutComponent },
@@ -73,6 +74,7 @@ const routes = [
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
