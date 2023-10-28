@@ -11,7 +11,7 @@ import { AboutComponent } from './components/about/about.component';
 import { RouterModule } from '@angular/router';
 import { CalculatorComponent } from './components/calculator/calculator.component';
 import { IngredientsComponent } from './components/ingredients/ingredients.component';
-import { RecipesComponent } from './components/recipes/recipes.component';
+import { RecipesListComponent } from './components/recipes-list/recipes-list.component';
 import { LoginComponent } from './components/login/login.component';
 import { ErrorComponent } from './components/error/error.component';
 import { CalculatorIngredientsComponent } from './components/calculator-ingredients/calculator-ingredients.component';
@@ -24,6 +24,8 @@ import { provideAuth, getAuth } from '@angular/fire/auth';
 import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { HttpClientModule } from '@angular/common/http';
+import { RecipesFormComponent } from './components/recipes-form/recipes-form.component';
+import { RecipesFormIngredientsComponent } from './components/recipes-form-ingredients/recipes-form-ingredients.component';
 
 const routes = [
   { path: 'about', component: AboutComponent },
@@ -36,7 +38,7 @@ const routes = [
   },
   {
     path: 'recipes',
-    component: RecipesComponent,
+    component: RecipesListComponent,
     ...canActivate(() => redirectUnauthorizedTo(['/login'])),
   },
   { path: 'login', component: LoginComponent },
@@ -46,6 +48,8 @@ const routes = [
     path: 'calculator-ingredients-calculated',
     component: CalculatorIngredientsCalculatedComponent,
   },
+  { path: 'recipes-form', component: RecipesFormComponent },
+  { path: 'recipes-form-ingredients', component: RecipesFormIngredientsComponent },
   { path: '**', component: ErrorComponent },
 ];
 @NgModule({
@@ -58,12 +62,14 @@ const routes = [
     AboutComponent,
     CalculatorComponent,
     IngredientsComponent,
-    RecipesComponent,
+    RecipesListComponent,
     LoginComponent,
     CalculatorIngredientsComponent,
     CalculatorIngredientsCalculatedComponent,
     ErrorComponent,
     RegisterComponent,
+    RecipesFormComponent,
+    RecipesFormIngredientsComponent,
   ],
   imports: [
     BrowserModule,

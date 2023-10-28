@@ -1,19 +1,16 @@
 export class Recipe {
   constructor(
     name: string,
-    description: string,
     ingredients: Ingredient[],
     uID: string
   ) {
     this.name = name;
-    this.description = description;
     this.ingredients = ingredients;
     this.uID = uID;
 
   }
 
   name: string = '';
-  description: string = '';
   ingredients: Ingredient[] = [];
   uID: string = '';
 }

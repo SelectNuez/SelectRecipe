@@ -1,0 +1,29 @@
+<h2 id="ingredientes_titulo">Nueva Receta</h2>
+<div class="container">
+  <form
+    class="row align-items-start"
+    [formGroup]="formRecipeName"
+    (ngSubmit)="setRecipeName()"
+    *ngIf="!settedRecipeName"
+  >
+    <div class="col">
+      <div class="recipeTitle">Titulo de la receta</div>
+      <input
+        type="text"
+        name="recipeName"
+        id="recipeName"
+        formControlName="recipeName"
+      />
+      <div
+        *ngIf="
+          formRecipeName.get('recipeName').hasError('required') && showErrorMsg
+        "
+      >
+        El nombre no puede estar vacio
+      </div>
+    </div>
+    <button type="submit">Añadir ingredientes</button>
+  </form>
+</div>
+<button onclick="location.reload()">Volver a empezar</button>
+<a routerLink="/" class="data m-3">Volver</a>

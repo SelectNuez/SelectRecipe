@@ -13,10 +13,9 @@ export class DatabaseService {
   ) {}
 
   loadRecipes() {
-    const token = this.userService.getToken();
+    const UID = this.userService.getUID();
     return this.httpClient.get(
-      'https://selectrecipedev-default-rtdb.europe-west1.firebasedatabase.app/recipes.json' +
-        token
+      'https://selectrecipedev-default-rtdb.europe-west1.firebasedatabase.app/recipes.json'
     );
   }
 

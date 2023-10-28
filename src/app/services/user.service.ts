@@ -16,7 +16,6 @@ import { CookieService } from 'ngx-cookie-service';
   providedIn: 'root',
 })
 export class UserService {
-
   private userSubject: BehaviorSubject<User | null> =
     new BehaviorSubject<User | null>(null);
   user$: Observable<User | null> = this.userSubject.asObservable();
@@ -29,13 +28,13 @@ export class UserService {
 
   // token: string;
 
-  setCookie(loginWork: any){
+  setCookie(loginWork: any) {
     loginWork.then((user) => {
       this.cookies.set('token', user.user?.refreshToken || '');
     });
   }
 
-  getToken(){
+  getToken() {
     return this.cookies.get('token');
   }
 
@@ -62,5 +61,9 @@ export class UserService {
 
   isLoged() {
     return this.userSubject.value !== null;
+  }
+
+  getUID(){
+    return this.userSubject.value?.uid;
   }
 }
