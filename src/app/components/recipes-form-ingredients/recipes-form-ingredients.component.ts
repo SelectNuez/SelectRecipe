@@ -32,8 +32,10 @@ export class RecipesFormIngredientsComponent implements OnInit{
   }
   ngOnInit(): void {
     this.recipeName = this.recipeListService.getRecipeName();
+    this.recipeDinners = this.recipeListService.getRecipeDinners();
   }
   recipeName: string;
+  recipeDinners: number;
   formRecipeName: FormGroup;
   formRecipe: FormGroup;
   settedRecipeName= false;
@@ -74,6 +76,7 @@ export class RecipesFormIngredientsComponent implements OnInit{
     const UID = this.userService.getUID();
     const recipe = new Recipe(
       this.recipeName,
+      this.recipeDinners,
       this.recipeIngredients,
       UID
     );

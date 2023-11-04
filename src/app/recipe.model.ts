@@ -1,18 +1,20 @@
 export class Recipe {
   constructor(
     name: string,
+    dinners: number,
     ingredients: Ingredient[],
     uID: string
   ) {
     this.name = name;
+    this.dinners = dinners;
     this.ingredients = ingredients;
     this.uID = uID;
-
   }
 
-  name: string = '';
-  ingredients: Ingredient[] = [];
-  uID: string = '';
+  name: string;
+  dinners: number;
+  ingredients: Ingredient[];
+  uID: string;
 }
 export class Ingredient {
   constructor(
@@ -25,7 +27,7 @@ export class Ingredient {
     this.price = price;
   }
 
-  name: string = '';
-  quantity: string = '';
-  price: number = 0;
+  name: string;
+  quantity: string;
+  price: number;
 }

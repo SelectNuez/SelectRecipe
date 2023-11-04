@@ -2,9 +2,9 @@
 <div class="container">
   <form
     class="row align-items-start"
-    [formGroup]="formRecipeName"
-    (ngSubmit)="setRecipeName()"
-    *ngIf="!settedRecipeName"
+    [formGroup]="formRecipe"
+    (ngSubmit)="setRecipeData()"
+
   >
     <div class="col">
       <div class="recipeTitle">Titulo de la receta</div>
@@ -16,10 +16,24 @@
       />
       <div
         *ngIf="
-          formRecipeName.get('recipeName').hasError('required') && showErrorMsg
+          formRecipe.get('recipeName').hasError('required') && showErrorMsg
         "
       >
         El nombre no puede estar vacio
+      </div>
+      <div class="recipeDinners">Numero comensales</div>
+      <input
+        type="number"
+        name="recipeDinners"
+        id="recipeDinners"
+        formControlName="recipeDinners"
+      />
+      <div
+        *ngIf="
+          formRecipe.get('recipeDinners').hasError('required') && showErrorMsg
+        "
+      >
+        El numero de comensales no puede estar vacio
       </div>
     </div>
     <button type="submit">Añadir ingredientes</button>

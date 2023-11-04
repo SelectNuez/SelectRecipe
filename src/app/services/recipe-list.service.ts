@@ -6,6 +6,7 @@ import { Injectable, OnInit } from '@angular/core';
 export class RecipeListService implements OnInit{
 
   recipeName: string;
+  recipeDinners: number;
 
   constructor() { }
   ngOnInit(): void {
@@ -19,6 +20,15 @@ export class RecipeListService implements OnInit{
   getRecipeName(){
     return this.recipeName;
   }
+
+  setRecipeDinners(recipeDinners: number){
+    this.recipeDinners = recipeDinners;
+  }
+
+  getRecipeDinners(){
+    return this.recipeDinners;
+  }
+
 
 
 }

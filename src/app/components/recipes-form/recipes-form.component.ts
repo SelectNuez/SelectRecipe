@@ -17,8 +17,9 @@ export class RecipesFormComponent {
     private router: Router,
     private recipeListService: RecipeListService,
   ) {
-    this.formRecipeName = this.fb.group({
+    this.formRecipe = this.fb.group({
       recipeName: ['', [Validators.required]],
+      recipeDinners: ['', [Validators.required, Validators.min(1)]],
     });
 
     // this.formRecipe = this.fb.group({
@@ -28,25 +29,37 @@ export class RecipesFormComponent {
     // });
   }
 
-  formRecipeName: FormGroup;
+  //formRecipeName: FormGroup;
   formRecipe: FormGroup;
   settedRecipeName= false;
   showErrorMsg = false;
   recipeName: string;
+  recipeDinners: number;
   recipeIngredients: Ingredient[] = [];
 
 
+  setRecipeData(){
+    this.setRecipeName();
+    this.setRecipeDinners();
+    this.router.navigate(['/recipes-form-ingredients']);
+  }
 
   setRecipeName() {
-    if (this.formRecipeName.valid) {
-      this.recipeName = this.formRecipeName.value.recipeName;
-      this.settedRecipeName = true;
-      this.cdr.detectChanges();
+    if (this.formRecipe.valid) {
+      this.recipeName = this.formRecipe.value.recipeName;
+      //this.settedRecipeName = true;
+      //this.cdr.detectChanges();
       this.recipeListService.setRecipeName(this.recipeName);
-      //Cambiamos a la ruta de añadir ingredientes
-      this.router.navigate(['/recipes-form-ingredients']);
-    } else {
-      this.showErrorMsg = true;
+    }
+     //else {
+      //this.showErrorMsg = true;
+    //}
+  }
+
+  setRecipeDinners() {
+    if(this.formRecipe.valid){
+      this.recipeDinners = this.formRecipe.value.recipeDinners;
+      this.recipeListService.setRecipeDinners(this.recipeDinners);
     }
   }
   // recipe: Recipe[] = [];

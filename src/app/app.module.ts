@@ -26,6 +26,7 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { HttpClientModule } from '@angular/common/http';
 import { RecipesFormComponent } from './components/recipes-form/recipes-form.component';
 import { RecipesFormIngredientsComponent } from './components/recipes-form-ingredients/recipes-form-ingredients.component';
+import { RecipeIndividualComponent } from './components/recipe-individual/recipe-individual.component';
 
 const routes = [
   { path: 'about', component: AboutComponent },
@@ -50,6 +51,7 @@ const routes = [
   },
   { path: 'recipes-form', component: RecipesFormComponent },
   { path: 'recipes-form-ingredients', component: RecipesFormIngredientsComponent },
+  { path: 'recipe-individual/:name', component: RecipeIndividualComponent },
   { path: '**', component: ErrorComponent },
 ];
 @NgModule({
@@ -70,6 +72,7 @@ const routes = [
     RegisterComponent,
     RecipesFormComponent,
     RecipesFormIngredientsComponent,
+    RecipeIndividualComponent,
   ],
   imports: [
     BrowserModule,
