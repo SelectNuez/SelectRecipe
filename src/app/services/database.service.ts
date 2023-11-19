@@ -66,6 +66,5 @@ export class DatabaseService {
     );
   }
   deleteRecipe(recipe: Recipe) {
-
   }
 }

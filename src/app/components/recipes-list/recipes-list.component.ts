@@ -44,8 +44,10 @@ export class RecipesListComponent {
 
 
 
-  deleteRecipe(recipe: Recipe) {
-
+  deleteRecipe(recipe: Recipe, i: number) {
+    this.dataBaseService.deleteRecipe(recipe);
+    console.log(this.recipes.at(i));
+    console.log(this.recipes);
   }
 
 }
