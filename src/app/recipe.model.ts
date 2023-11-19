@@ -3,7 +3,7 @@ export class Recipe {
     name: string,
     dinners: number,
     ingredients: Ingredient[],
-    uID: string
+    uID: string,
   ) {
     this.name = name;
     this.dinners = dinners;
@@ -19,7 +19,7 @@ export class Recipe {
 export class Ingredient {
   constructor(
     name: string,
-    quantity: string,
+    quantity: number,
     price: number
   ) {
     this.name = name;
@@ -28,6 +28,6 @@ export class Ingredient {
   }
 
   name: string;
-  quantity: string;
+  quantity: number;
   price: number;
 }

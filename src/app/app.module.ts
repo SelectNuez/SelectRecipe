@@ -10,7 +10,6 @@ import { MenuComponent } from './components/menu/menu.component';
 import { AboutComponent } from './components/about/about.component';
 import { RouterModule } from '@angular/router';
 import { CalculatorComponent } from './components/calculator/calculator.component';
-import { IngredientsComponent } from './components/ingredients/ingredients.component';
 import { RecipesListComponent } from './components/recipes-list/recipes-list.component';
 import { LoginComponent } from './components/login/login.component';
 import { ErrorComponent } from './components/error/error.component';
@@ -32,11 +31,6 @@ const routes = [
   { path: 'about', component: AboutComponent },
   { path: '', component: MenuComponent },
   { path: 'calculator', component: CalculatorComponent },
-  {
-    path: 'ingredients',
-    component: IngredientsComponent,
-    ...canActivate(() => redirectUnauthorizedTo(['/login'])),
-  },
   {
     path: 'recipes',
     component: RecipesListComponent,
@@ -63,7 +57,6 @@ const routes = [
     MenuComponent,
     AboutComponent,
     CalculatorComponent,
-    IngredientsComponent,
     RecipesListComponent,
     LoginComponent,
     CalculatorIngredientsComponent,

@@ -28,9 +28,6 @@ export class CalculatorIngredientsComponent{
 
 
   recipe: any[] = [
-    { name: 'Azúcar', quantity: 200, price: 50 },
-    { name: 'Chocolate', quantity: 50, price: 25 },
-    { name: 'Leche', quantity: 100, price: 30 },
   ];
 
   // Guardamos el ingrediente en la receta

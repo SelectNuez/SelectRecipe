@@ -47,6 +47,40 @@ export class DatabaseService {
         })
       );
   }
+  // loadRecipes() {
+  //   const UID = this.userService.getUID();
+  //   return this.httpClient
+  //     .get<Record<string, Recipe>>(
+  //       'https://selectrecipedev-default-rtdb.europe-west1.firebasedatabase.app/recipes.json'
+  //     )
+  //     .pipe(
+  //       map((data) => {
+  //         if (!data) {
+  //           return { recipes: [], recipeKeys: [] };
+  //         }
+
+  //         // Filtrar las recetas según el UID del usuario
+  //         const recipeKeys = Object.keys(data)
+  //           .filter((key) => data[key]?.uID === UID);
+
+  //         this.recipes = recipeKeys.map((key) => {
+  //           const recipeData = data[key];
+  //           const ingredients = recipeData.ingredients.map((ingredient: any) =>
+  //             new Ingredient(ingredient.name, ingredient.quantity, ingredient.price)
+  //           );
+  //           return new Recipe(
+  //             recipeData.name,
+  //             recipeData.dinners,
+  //             ingredients,
+  //             recipeData.uID,
+  //           // Agrega el nombre del nodo como propiedad de la receta
+  //           );
+  //         });
+
+  //         return { recipes: this.recipes, recipeKeys };
+  //       })
+  //     );
+  // }
 
   getRecipeByName(name: string): Recipe | undefined {
     // Buscar la receta por nombre en las recetas cargadas
@@ -59,5 +93,8 @@ export class DatabaseService {
       'https://selectrecipedev-default-rtdb.europe-west1.firebasedatabase.app/recipes.json',
       recipe
     );
+  }
+  deleteRecipe(recipe: Recipe) {
+
   }
 }

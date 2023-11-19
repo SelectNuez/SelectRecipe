@@ -1,6 +1,24 @@
-<h2>{{ recipeName }} Ingredientes</h2>
-<ul>
-  <li *ngFor="let ingredient of recipe?.ingredients">
-    {{ ingredient.name }} ({{ ingredient.quantity }}) - ${{ ingredient.price }}
-  </li>
-</ul>
+<h2>{{ recipeName }}</h2>
+<h3>Comensales: {{ recipeDinners }}</h3>
+<button (click)="addDiner()"> + </button>
+<button (click)="discDiner()"> - </button>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-2">
+      <table class="table">
+        <tr>
+          <th>Ingrediente</th>
+          <th>Cantidad</th>
+          <th>Precio</th>
+        </tr>
+        <tr *ngFor="let ingredient of recipe?.ingredients">
+          <td>{{ ingredient.name }}</td>
+          <td>{{ ingredient.quantity }}</td>
+          <td>{{ ingredient.price }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<a routerLink="/recipes" class="data m-3 button">Volver</a>
+

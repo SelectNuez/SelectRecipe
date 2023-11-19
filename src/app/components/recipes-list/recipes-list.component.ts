@@ -41,4 +41,11 @@ export class RecipesListComponent {
       });
     });
   }
+
+
+
+  deleteRecipe(recipe: Recipe) {
+
+  }
+
 }

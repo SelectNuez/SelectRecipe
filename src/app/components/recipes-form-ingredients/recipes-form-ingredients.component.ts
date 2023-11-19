@@ -78,7 +78,8 @@ export class RecipesFormIngredientsComponent implements OnInit{
       this.recipeName,
       this.recipeDinners,
       this.recipeIngredients,
-      UID
+      UID,
+
     );
     this.dataBaseService.saveRecipe(recipe).subscribe();
     this.router.navigate(['/recipes']);
