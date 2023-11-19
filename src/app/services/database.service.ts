@@ -15,6 +15,7 @@ export class DatabaseService {
 
   private recipes: Recipe[] = []; // Agrega una propiedad para almacenar las recetas
 
+
   loadRecipes() {
     const UID = this.userService.getUID();
     return this.httpClient
@@ -32,9 +33,14 @@ export class DatabaseService {
             .filter((key) => data[key]?.uID === UID)
             .map((key) => {
               const recipeData = data[key];
-              const ingredients = recipeData.ingredients.map((ingredient: any) =>
-                new Ingredient(ingredient.name, ingredient.quantity, ingredient.price)
-              );
+
+              // Verifica si hay ingredientes antes de mapearlos
+              const ingredients = recipeData.ingredients
+                ? recipeData.ingredients.map((ingredient: any) =>
+                    new Ingredient(ingredient.name, ingredient.quantity, ingredient.price)
+                  )
+                : [];
+
               return new Recipe(
                 recipeData.name,
                 recipeData.dinners,
@@ -47,41 +53,6 @@ export class DatabaseService {
         })
       );
   }
-  // loadRecipes() {
-  //   const UID = this.userService.getUID();
-  //   return this.httpClient
-  //     .get<Record<string, Recipe>>(
-  //       'https://selectrecipedev-default-rtdb.europe-west1.firebasedatabase.app/recipes.json'
-  //     )
-  //     .pipe(
-  //       map((data) => {
-  //         if (!data) {
-  //           return { recipes: [], recipeKeys: [] };
-  //         }
-
-  //         // Filtrar las recetas según el UID del usuario
-  //         const recipeKeys = Object.keys(data)
-  //           .filter((key) => data[key]?.uID === UID);
-
-  //         this.recipes = recipeKeys.map((key) => {
-  //           const recipeData = data[key];
-  //           const ingredients = recipeData.ingredients.map((ingredient: any) =>
-  //             new Ingredient(ingredient.name, ingredient.quantity, ingredient.price)
-  //           );
-  //           return new Recipe(
-  //             recipeData.name,
-  //             recipeData.dinners,
-  //             ingredients,
-  //             recipeData.uID,
-  //           // Agrega el nombre del nodo como propiedad de la receta
-  //           );
-  //         });
-
-  //         return { recipes: this.recipes, recipeKeys };
-  //       })
-  //     );
-  // }
-
   getRecipeByName(name: string): Recipe | undefined {
     // Buscar la receta por nombre en las recetas cargadas
     return this.recipes.find((recipe) => recipe.name === name);
