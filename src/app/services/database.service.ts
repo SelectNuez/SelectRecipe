@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UserService } from './user.service';
 import { Ingredient, Recipe } from 'src/app/recipe.model';
-import { map } from 'rxjs';
+import { map, tap } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -10,11 +11,12 @@ import { map } from 'rxjs';
 export class DatabaseService {
   constructor(
     private httpClient: HttpClient,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router,
+
   ) {}
 
   private recipes: Recipe[] = []; // Agrega una propiedad para almacenar las recetas
-
 
   loadRecipes() {
     const UID = this.userService.getUID();
@@ -36,8 +38,13 @@ export class DatabaseService {
 
               // Verifica si hay ingredientes antes de mapearlos
               const ingredients = recipeData.ingredients
-                ? recipeData.ingredients.map((ingredient: any) =>
-                    new Ingredient(ingredient.name, ingredient.quantity, ingredient.price)
+                ? recipeData.ingredients.map(
+                    (ingredient: any) =>
+                      new Ingredient(
+                        ingredient.name,
+                        ingredient.quantity,
+                        ingredient.price
+                      )
                   )
                 : [];
 
@@ -45,7 +52,8 @@ export class DatabaseService {
                 recipeData.name,
                 recipeData.dinners,
                 ingredients,
-                recipeData.uID
+                recipeData.uID,
+                recipeData.recipeID
               );
             });
 
@@ -59,12 +67,38 @@ export class DatabaseService {
   }
 
   saveRecipe(recipe: Recipe) {
-    // const token = this.userService.getToken();
-    return this.httpClient.post(
-      'https://selectrecipedev-default-rtdb.europe-west1.firebasedatabase.app/recipes.json',
-      recipe
+    const recipeID = recipe.recipeID;
+    const url = `https://selectrecipedev-default-rtdb.europe-west1.firebasedatabase.app/recipes/${recipeID}.json`;
+
+    return this.httpClient.put(url, recipe).pipe(
+      tap(() => {
+        console.log('Receta guardada con éxito.');
+        // Redirigir a la página /recipes y recargarla
+        this.router.navigate(['/recipes']).then(() => {
+          window.location.reload();
+        });
+      })
     );
   }
+
+
   deleteRecipe(recipe: Recipe) {
+    const recipeID = recipe.recipeID;
+    const url = `https://selectrecipedev-default-rtdb.europe-west1.firebasedatabase.app/recipes/${recipeID}.json`;
+    console.log(url);
+
+    return this.httpClient.delete(url).subscribe(
+      () => {
+        console.log('Receta eliminada con éxito.');
+        window.location.reload();
+      },
+      (error) => {
+        console.error('Error al eliminar la receta:', error);
+      }
+    );
+  }
+
+  createID(UID: string, recipeName: string) {
+    return UID + recipeName;
   }
 }

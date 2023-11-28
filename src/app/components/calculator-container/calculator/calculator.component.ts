@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { DataDinersService } from '../../services/data-diners.service';
+import { DataDinersService } from '../../../services/data-diners.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({

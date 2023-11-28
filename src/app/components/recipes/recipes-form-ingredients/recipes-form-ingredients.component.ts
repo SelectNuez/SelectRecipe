@@ -74,15 +74,16 @@ export class RecipesFormIngredientsComponent implements OnInit{
 
   saveRecipe() {
     const UID = this.userService.getUID();
+    const recipeID = this.dataBaseService.createID(UID, this.recipeName);
     const recipe = new Recipe(
       this.recipeName,
       this.recipeDinners,
       this.recipeIngredients,
       UID,
-
+      recipeID,
     );
     this.dataBaseService.saveRecipe(recipe).subscribe();
-    this.router.navigate(['/recipes']);
-
   }
+
+
 }

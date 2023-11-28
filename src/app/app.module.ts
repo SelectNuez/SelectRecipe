@@ -9,13 +9,13 @@ import { LogoComponent } from './components/logo/logo.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { AboutComponent } from './components/about/about.component';
 import { RouterModule } from '@angular/router';
-import { CalculatorComponent } from './components/calculator/calculator.component';
-import { RecipesListComponent } from './components/recipes-list/recipes-list.component';
+import { CalculatorComponent } from './components/calculator-container/calculator/calculator.component';
+import { RecipesListComponent } from './components/recipes/recipes-list/recipes-list.component';
 import { LoginComponent } from './components/login/login.component';
 import { ErrorComponent } from './components/error/error.component';
-import { CalculatorIngredientsComponent } from './components/calculator-ingredients/calculator-ingredients.component';
+import { CalculatorIngredientsComponent } from './components/calculator-container/calculator-ingredients/calculator-ingredients.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CalculatorIngredientsCalculatedComponent } from './components/calculator-ingredients-calculated/calculator-ingredients-calculated.component';
+import { CalculatorIngredientsCalculatedComponent } from './components/calculator-container/calculator-ingredients-calculated/calculator-ingredients-calculated.component';
 import { RegisterComponent } from './components/register/register.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
@@ -23,9 +23,9 @@ import { provideAuth, getAuth } from '@angular/fire/auth';
 import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { HttpClientModule } from '@angular/common/http';
-import { RecipesFormComponent } from './components/recipes-form/recipes-form.component';
-import { RecipesFormIngredientsComponent } from './components/recipes-form-ingredients/recipes-form-ingredients.component';
-import { RecipeIndividualComponent } from './components/recipe-individual/recipe-individual.component';
+import { RecipesFormComponent } from './components/recipes/recipes-form/recipes-form.component';
+import { RecipesFormIngredientsComponent } from './components/recipes/recipes-form-ingredients/recipes-form-ingredients.component';
+import { RecipeIndividualComponent } from './components/recipes/recipe-individual/recipe-individual.component';
 
 const routes = [
   { path: 'about', component: AboutComponent },

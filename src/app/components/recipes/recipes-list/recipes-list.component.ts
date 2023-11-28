@@ -36,7 +36,8 @@ export class RecipesListComponent {
           recipeData.name,
           recipeData.dinners,
           ingredients,
-          recipeData.uID
+          recipeData.uID,
+          recipeData.recipeID
         );
       });
     });
@@ -44,10 +45,8 @@ export class RecipesListComponent {
 
 
 
-  deleteRecipe(recipe: Recipe, i: number) {
+  deleteRecipe(recipe: Recipe) {
     this.dataBaseService.deleteRecipe(recipe);
-    console.log(this.recipes.at(i));
-    console.log(this.recipes);
   }
 
 }

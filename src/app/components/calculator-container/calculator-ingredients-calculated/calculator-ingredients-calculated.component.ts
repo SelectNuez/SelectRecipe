@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataDinersService } from '../../services/data-diners.service';
+import { DataDinersService } from '../../../services/data-diners.service';
 import { NgFor } from '@angular/common';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DataDinersService } from '../../services/data-diners.service';
+import { DataDinersService } from '../../../services/data-diners.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
