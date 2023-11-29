@@ -68,18 +68,35 @@ export class DatabaseService {
 
   saveRecipe(recipe: Recipe) {
     const recipeID = recipe.recipeID;
+    const UID = recipe.uID;
     const url = `https://selectrecipedev-default-rtdb.europe-west1.firebasedatabase.app/recipes/${recipeID}.json`;
 
-    return this.httpClient.put(url, recipe).pipe(
-      tap(() => {
-        console.log('Receta guardada con éxito.');
-        // Redirigir a la página /recipes y recargarla
-        this.router.navigate(['/recipes']).then(() => {
-          window.location.reload();
-        });
-      })
-    );
+    // Verificar si la receta ya existe
+    if (this.recipes.find((existingRecipe) => existingRecipe.recipeID === recipeID)) {
+      // La receta ya existe, realiza una actualización
+      return this.httpClient.patch(url, recipe).pipe(
+        tap(() => {
+          console.log('Receta actualizada con éxito.');
+          // Redirigir a la página /recipes y recargarla
+          this.router.navigate(['/recipes']).then(() => {
+            window.location.reload();
+          });
+        })
+      );
+    } else {
+      // La receta no existe, realiza una creación
+      return this.httpClient.put(url, recipe).pipe(
+        tap(() => {
+          console.log('Receta guardada con éxito.');
+          // Redirigir a la página /recipes y recargarla
+          this.router.navigate(['/recipes']).then(() => {
+            window.location.reload();
+          });
+        })
+      );
+    }
   }
+
 
 
   deleteRecipe(recipe: Recipe) {

@@ -54,4 +54,10 @@ export class CalculatorIngredientsComponent{
   getCalcPrice() {
     return this.dataDiners.calcPrice;
   }
+
+  deleteIngredient(item) {
+    const index = this.recipe.indexOf(item);
+    this.recipe.splice(index, 1);
+  }
+
 }
