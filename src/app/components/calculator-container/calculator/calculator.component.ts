@@ -8,6 +8,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './calculator.component.html',
   styleUrls: ['./calculator.component.css'],
 })
+
+
+
 export class CalculatorComponent {
   formDiner: FormGroup;
   showErrorMsg = false;

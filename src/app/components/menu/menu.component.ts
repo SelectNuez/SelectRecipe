@@ -19,5 +19,11 @@ export class MenuComponent implements OnInit {
     this.userService.logout().catch((error) => console.log(error));
   }
 
-
+  login() {
+    this.userService.loginWithGoogle()
+      .then(response => {
+        console.log(response);
+      })
+      .catch(error => console.log(error))
+  }
 }

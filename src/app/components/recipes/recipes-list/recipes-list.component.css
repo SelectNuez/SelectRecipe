@@ -21,4 +21,6 @@
 a{
   text-decoration: none;
   color: var(--color-8);
+  font-weight: bold;
+  font-size: large;
 }

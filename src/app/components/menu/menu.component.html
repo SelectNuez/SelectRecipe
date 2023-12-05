@@ -9,17 +9,14 @@
     <a routerLink="/about" class="data"> Sobre nosotros </a>
   </div>
   <div class="item" *ngIf="!(user | async)">
-    <a routerLink="/login" class="data" > Login </a>
+    <!-- <a routerLink="/login" class="data" > Login </a> -->
+    <button (click)="login()" class="data">
+      Login
+    </button>
   </div>
   <div class="item" *ngIf="user | async">
     <button (click)="logout()" class="data">
       Logout
     </button>
   </div>
-
-  <div id="alertReg"></div>
 </nav>
-
-<!-- <button (click)="test()" class="data">
-  test
-</button> -->

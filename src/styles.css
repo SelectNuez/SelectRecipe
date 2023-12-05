@@ -38,13 +38,20 @@ body {
   border-radius: 5px;
 }
 
-a{
-  text-decoration: none;
-  color: var(--color-8);
-}
+
 ul{
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
+}
+.back{
+  text-decoration: none;
+  color: var(--color-8);
+  padding: 3px;
+  font-weight: bold;
+  font-size: 20px;
+  position: absolute;
+  bottom: 40px;
+  right: 15px;
 }
