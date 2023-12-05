@@ -1,113 +1,114 @@
-<br />
-<a routerLink="/recipes-form" class="item"> Añadir receta </a>
+<div class="container">
+  <h2>Listado de recetas</h2>
+  <a routerLink="/recipes-form" class="add"> Añadir receta </a>
 
-<h2>Recetas</h2>
-<ul>
-  <div *ngIf="recipes.length > 0">
-    <li *ngFor="let recipe of recipes; let i = index">
-      <div class="item">
-        <a [routerLink]="['/recipe-individual', recipe.name]" class="data">
-          {{ recipe.name }}
-          <svg
-            height="20px"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-            <g
-              id="SVGRepo_tracerCarrier"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            ></g>
-            <g id="SVGRepo_iconCarrier">
-              <path
-                d="M12 1C8.96243 1 6.5 3.46243 6.5 6.5C6.5 9.53757 8.96243 12 12 12C15.0376 12 17.5 9.53757 17.5 6.5C17.5 3.46243 15.0376 1 12 1Z"
-                fill="#000000"
-              ></path>
-              <path
-                d="M7 14C4.23858 14 2 16.2386 2 19V22C2 22.5523 2.44772 23 3 23H21C21.5523 23 22 22.5523 22 22V19C22 16.2386 19.7614 14 17 14H7Z"
-                fill="#000000"
-              ></path>
-            </g></svg
-          >{{ recipe.dinners }}
-        </a>
-        <a (click)="editRecipe(recipe)" class="data"
-          ><svg
-            height="40px"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-            id="create-note"
-            class="icon glyph"
-            fill="#000000"
-          >
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-            <g
-              id="SVGRepo_tracerCarrier"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            ></g>
-            <g id="SVGRepo_iconCarrier">
-              <path
-                d="M20.71,3.29a2.91,2.91,0,0,0-2.2-.84,3.25,3.25,0,0,0-2.17,1L9.46,10.29s0,0,0,0a.62.62,0,0,0-.11.17,1,1,0,0,0-.1.18l0,0L8,14.72A1,1,0,0,0,9,16a.9.9,0,0,0,.28,0l4-1.17,0,0,.18-.1a.62.62,0,0,0,.17-.11l0,0,6.87-6.88a3.25,3.25,0,0,0,1-2.17A2.91,2.91,0,0,0,20.71,3.29Z"
-              ></path>
-              <path
-                d="M20,22H4a2,2,0,0,1-2-2V4A2,2,0,0,1,4,2h8a1,1,0,0,1,0,2H4V20H20V12a1,1,0,0,1,2,0v8A2,2,0,0,1,20,22Z"
-                style="fill: #000000"
-              ></path>
-            </g></svg
-        ></a>
-        <a (click)="deleteRecipe(recipe)" class="data"
-          ><svg
-            fill="#000000"
-            height="40px"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-            id="delete-alt"
-            class="icon glyph"
-          >
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-            <g
-              id="SVGRepo_tracerCarrier"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            ></g>
-            <g id="SVGRepo_iconCarrier">
-              <path
-                d="M17,4V5H15V4H9V5H7V4A2,2,0,0,1,9,2h6A2,2,0,0,1,17,4Z"
-              ></path>
-              <path
-                d="M20,6H4A1,1,0,0,0,4,8H5V20a2,2,0,0,0,2,2H17a2,2,0,0,0,2-2V8h1a1,1,0,0,0,0-2ZM11,17a1,1,0,0,1-2,0V11a1,1,0,0,1,2,0Zm4,0a1,1,0,0,1-2,0V11a1,1,0,0,1,2,0Z"
-              ></path>
-            </g></svg
-        ></a>
-      </div>
-    </li>
-  </div>
-  <div *ngIf="recipes.length == 0">
-    <li>No tienes recetas</li>
-  </div>
-</ul>
-<a routerLink="/" class="data m-3 button back"
-  ><svg
-    height="30px"
-    viewBox="0 0 24 24"
-    xmlns="http://www.w3.org/2000/svg"
-    id="right-sign-1"
-    class="icon glyph"
-    fill="#000000"
-    transform="rotate(180)"
-  >
-    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-    <g
-      id="SVGRepo_tracerCarrier"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    ></g>
-    <g id="SVGRepo_iconCarrier">
-      <path
-        d="M15.64,6.23A1,1,0,0,0,14,7V9H3a1,1,0,0,0-1,1v4a1,1,0,0,0,1,1H14v2a1,1,0,0,0,.58.91A1,1,0,0,0,15,18a1,1,0,0,0,.64-.23l5.08-4.23a2,2,0,0,0,0-3.08Z"
-        style="fill: #000000"
-      ></path>
-    </g></svg
-></a>
+  <ul>
+    <div *ngIf="recipes.length > 0">
+      <li *ngFor="let recipe of recipes; let i = index">
+        <div class="item">
+          <a [routerLink]="['/recipe-individual', recipe.name]" class="data">
+            {{ recipe.name }}
+            <svg
+              height="20px"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  d="M12 1C8.96243 1 6.5 3.46243 6.5 6.5C6.5 9.53757 8.96243 12 12 12C15.0376 12 17.5 9.53757 17.5 6.5C17.5 3.46243 15.0376 1 12 1Z"
+                  fill="#000000"
+                ></path>
+                <path
+                  d="M7 14C4.23858 14 2 16.2386 2 19V22C2 22.5523 2.44772 23 3 23H21C21.5523 23 22 22.5523 22 22V19C22 16.2386 19.7614 14 17 14H7Z"
+                  fill="#000000"
+                ></path>
+              </g></svg
+            >{{ recipe.dinners }}
+          </a><br>
+          <a (click)="editRecipe(recipe)" class="data edit"
+            ><svg
+              height="30px"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              id="create-note"
+              class="icon glyph"
+              fill="#000000"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  d="M20.71,3.29a2.91,2.91,0,0,0-2.2-.84,3.25,3.25,0,0,0-2.17,1L9.46,10.29s0,0,0,0a.62.62,0,0,0-.11.17,1,1,0,0,0-.1.18l0,0L8,14.72A1,1,0,0,0,9,16a.9.9,0,0,0,.28,0l4-1.17,0,0,.18-.1a.62.62,0,0,0,.17-.11l0,0,6.87-6.88a3.25,3.25,0,0,0,1-2.17A2.91,2.91,0,0,0,20.71,3.29Z"
+                ></path>
+                <path
+                  d="M20,22H4a2,2,0,0,1-2-2V4A2,2,0,0,1,4,2h8a1,1,0,0,1,0,2H4V20H20V12a1,1,0,0,1,2,0v8A2,2,0,0,1,20,22Z"
+                  style="fill: #000000"
+                ></path>
+              </g></svg
+          ></a>
+          <a (click)="deleteRecipe(recipe)" class="data delete"
+            ><svg
+              fill="#000000"
+              height="40px"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              id="delete-alt"
+              class="icon glyph"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  d="M17,4V5H15V4H9V5H7V4A2,2,0,0,1,9,2h6A2,2,0,0,1,17,4Z"
+                ></path>
+                <path
+                  d="M20,6H4A1,1,0,0,0,4,8H5V20a2,2,0,0,0,2,2H17a2,2,0,0,0,2-2V8h1a1,1,0,0,0,0-2ZM11,17a1,1,0,0,1-2,0V11a1,1,0,0,1,2,0Zm4,0a1,1,0,0,1-2,0V11a1,1,0,0,1,2,0Z"
+                ></path>
+              </g></svg
+          ></a>
+        </div>
+      </li>
+    </div>
+    <div *ngIf="recipes.length == 0">
+      <li>No tienes recetas</li>
+    </div>
+  </ul>
+  <a routerLink="/" class="data m-3 button back"
+    ><svg
+      height="30px"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      id="right-sign-1"
+      class="icon glyph"
+      fill="#000000"
+      transform="rotate(180)"
+    >
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g
+        id="SVGRepo_tracerCarrier"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      ></g>
+      <g id="SVGRepo_iconCarrier">
+        <path
+          d="M15.64,6.23A1,1,0,0,0,14,7V9H3a1,1,0,0,0-1,1v4a1,1,0,0,0,1,1H14v2a1,1,0,0,0,.58.91A1,1,0,0,0,15,18a1,1,0,0,0,.64-.23l5.08-4.23a2,2,0,0,0,0-3.08Z"
+          style="fill: #000000"
+        ></path>
+      </g></svg
+  ></a>
+</div>
