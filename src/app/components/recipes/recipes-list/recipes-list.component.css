@@ -7,7 +7,8 @@
   background-color: var(--color-1);
   border: 5px solid black;
   border-radius: 10px;
-
+  overflow-y: auto;
+  max-height: 380px;
 }
 
 .add{
@@ -37,6 +38,7 @@ ul {
   border: 3px solid var(--color-8);
   border-radius: 5px;
   padding: 10px;
+  margin-bottom: 10px;
 }
 
 h2{

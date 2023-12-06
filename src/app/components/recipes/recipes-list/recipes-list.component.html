@@ -2,9 +2,10 @@
   <h2>Listado de recetas</h2>
   <a routerLink="/recipes-form" class="add"> Añadir receta </a>
 
-  <ul>
-    <div *ngIf="recipes.length > 0">
-      <li *ngFor="let recipe of recipes; let i = index">
+  <div style="max-height: 100%; overflow-y: auto;">
+    <ul>
+      <div *ngIf="recipes.length > 0">
+        <li *ngFor="let recipe of recipes; let i = index">
         <div class="item">
           <a [routerLink]="['/recipe-individual', recipe.name]" class="data">
             {{ recipe.name }}
@@ -88,6 +89,8 @@
       <li>No tienes recetas</li>
     </div>
   </ul>
+</div>
+
   <a routerLink="/" class="data m-3 button back"
     ><svg
       height="30px"
