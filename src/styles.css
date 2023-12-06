@@ -12,17 +12,15 @@
 }
 
 * {
-  font-family: "Quicksand", sans-serif;
-}
+font-family: 'Raleway', sans-serif;}
 
 html {
   height: 100%;
 }
 
 body {
-  background-image: url("./assets/background.jpg");
+  background:url("./assets/background.jpg") center/cover no-repeat;
   background-size: 120% 120%;
-  background-repeat: no-repeat;
 }
 
 .box {
