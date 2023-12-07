@@ -2,7 +2,7 @@
   <h2>Listado de recetas</h2>
   <a routerLink="/recipes-form" class="add"> Añadir receta </a>
 
-  <div style="max-height: 100%; overflow-y: auto;">
+  <div class="scroll">
     <ul>
       <div *ngIf="recipes.length > 0">
         <li *ngFor="let recipe of recipes; let i = index">

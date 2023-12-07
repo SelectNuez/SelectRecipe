@@ -3,12 +3,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 300px;
+  width: 285px;
   background-color: var(--color-1);
-  border: 5px solid black;
+  border: 3px solid black;
   border-radius: 10px;
   overflow-y: auto;
   max-height: 380px;
+  font-weight: bolder;
+
+}
+.scroll{
+  max-height: 100%;
+  overflow-y: auto;
 }
 
 .add{

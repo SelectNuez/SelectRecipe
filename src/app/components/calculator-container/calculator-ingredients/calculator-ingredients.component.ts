@@ -41,9 +41,12 @@ export class CalculatorIngredientsComponent{
 
       // Guardamos la receta en el servicio
       this.dataDiners.recipe = this.recipe;
+      this.showErrorMsg = false;
+
     } else {
       this.showErrorMsg = true;
     }
+    this.formIngredients.reset();
   }
 
   saveRecipe() {

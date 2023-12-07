@@ -1,27 +1,27 @@
-<div id="content">
-  <form class="box p-3 mx-3" id="personas" [formGroup]="formDiner" (ngSubmit)="setPersonas()">
+<div class="container">
+  <form class="box" id="personas" [formGroup]="formDiner" (ngSubmit)="setPersonas()">
     <div class="box-element mb-3">
-      <label for="perOrig" class="me-3">Numero original comensales</label>
+      <label for="perOrig" >Numero original comensales</label>
       <input required type="number" class="AddPers" id="perOrig" formControlName="originalNumber" />
-      <div *ngIf="formDiner.get('originalNumber').hasError('required') && showErrorMsg">
-        El número original es obligatorio.
+      <div class="error" *ngIf="formDiner.get('originalNumber').hasError('required') && showErrorMsg">
+        El número original es <b>obligatorio</b>.
       </div>
-      <div *ngIf="formDiner.get('originalNumber').hasError('min')">
+      <div class="error"*ngIf="formDiner.get('originalNumber').hasError('min')">
         El número original debe ser mayor que 0.
       </div>
     </div>
     <div class="box-element mb-3">
-      <label for="perNew" class="me-3">Numero nuevo comensales</label>
+      <label for="perNew" >Numero nuevo comensales</label>
       <input required type="number" class="AddPers" id="perNew" formControlName="newNumber" />
-      <div *ngIf="formDiner.get('newNumber').hasError('required') && showErrorMsg">
+      <div class="error" *ngIf="formDiner.get('newNumber').hasError('required') && showErrorMsg">
         El número nuevo es obligatorio.
       </div>
-      <div *ngIf="formDiner.get('newNumber').hasError('min')">
+      <div class="error" *ngIf="formDiner.get('newNumber').hasError('min')">
         El número nuevo debe ser mayor que 0.
       </div>
     </div>
     <div class="box-element mb-3">
-      <label for="perNew" class="me-3">¿Quiere calcular el precio de la receta?</label>
+      <label for="perNew" >¿Quiere calcular el precio de la receta?</label>
       <input type="checkbox" class="calcPrice" id="calcPrice" formControlName="calcPrice" />
     </div>
     <button type="submit" class="box-button button">Introducir ingredientes</button>

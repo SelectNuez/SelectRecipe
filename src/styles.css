@@ -1,18 +1,21 @@
 :root {
-  --color-1: #fbdbb8;
-  --color-2: #fadce6;
-  --color-3: #deaa94;
-  --color-4: #f04739;
-  --color-5: #906960;
-  --color-6: #623231;
-  --color-7: #ffd09e;
-  --color-8: #000;
-  --color-9: #c38f82;
-  --color-OK: #97f28a;
+  --color-1: #fdebd8;
+  --color-2: #fcdde9;
+  --color-3: #eabaa7;
+  --color-4: #f47e74;
+  --color-5: #b8a396;
+  --color-6: #8b6d5f;
+  --color-7: #ffe3c4;
+  --color-8: #333;
+  --color-9: #b9948a;
+  --color-OK: #a0f9ab;
 }
 
+
 * {
-font-family: 'Raleway', sans-serif;}
+  font-family: 'Dosis', sans-serif;
+  font-family: 'Raleway', sans-serif;
+}
 
 html {
   height: 100%;
@@ -23,12 +26,14 @@ body {
   background-size: 120% 120%;
 }
 
-.box {
+/* .box {
   background: var(--color-1);
   border: 3px solid #000;
   border-radius: 10px;
-  font-weight: bold;
-}
+  font-weight: bolder;
+} */
+
+
 
 .button {
   background: var(--color-3);

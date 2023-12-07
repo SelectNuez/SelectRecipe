@@ -1,0 +1,58 @@
+.container{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 285px;
+  background-color: var(--color-1);
+  border: 3px solid black;
+  border-radius: 10px;
+  overflow-y: auto;
+  height: 430px;
+  font-weight: bolder;
+  padding: 10px;
+  font-size: large;
+  overflow-x: hidden;
+}
+
+.scroll{
+  max-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+}
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.button.add {
+  margin-top: 8px; /* Ajusta el margen según tus preferencias */
+  width: 215px;
+}
+
+.button{
+  margin: 5px;
+  width: 100px;
+  height: 60px;
+}
+
+.back{
+  width: 42px;
+  height: 42px;
+
+}
+
+.set{
+  bottom: 10px;
+}
+.bottom-buttons {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px; /* Agrega algún espacio entre los botones y el borde inferior */
+}
