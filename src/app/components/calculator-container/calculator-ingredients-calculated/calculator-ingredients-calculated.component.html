@@ -1,31 +1,55 @@
-<h2 id="ingredientes_titulo">Ingredientes Calculados</h2>
-
-Numero comensales: {{ diners }}
-<button (click)="addDiner()"> + </button>
-<button (click)="discDiner()"> - </button>
-
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <ul>
-        <li *ngFor="let item of recipeCalc">{{ item.name }}</li>
-      </ul>
-    </div>
-    <div class="col">
-      <ul>
-        <li *ngFor="let item of recipeCalc">{{ item.quantity }}</li>
-      </ul>
-    </div>
-    <div class="col" *ngIf="getCalcPrice()">
-      <ul>
-        <li *ngFor="let item of recipeCalc">{{ item.price }}</li>
-      </ul>
+  <h2 id="ingredientes_titulo">Ingredientes Calculados</h2>
+
+  Numero comensales: {{ diners }}
+  <div class="buttons-operations">
+    <button (click)="addDiner()">+</button>
+    <button (click)="discDiner()">-</button>
+  </div>
+  <div class="scroll">
+    <div class="row">
+      <div class="col">
+        <ul>
+          <li *ngFor="let item of recipeCalc">{{ item.name }}</li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul>
+          <li *ngFor="let item of recipeCalc">{{ item.quantity }}</li>
+        </ul>
+      </div>
+      <div class="col" *ngIf="getCalcPrice()">
+        <ul>
+          <li *ngFor="let item of recipeCalc">{{ item.price }}</li>
+        </ul>
+      </div>
     </div>
   </div>
+  <div class="col" *ngIf="getCalcPrice()">
+    <h3>Precio total: {{ getTotalPrice() }} €</h3>
+    <h3>Precio por persona: {{ getUnitPrice() }} €</h3>
+  </div>
 </div>
-<div class="col" *ngIf="getCalcPrice()">
-  <h3>Precio total: {{ getTotalPrice() }} €</h3>
-  <h3>Precio por persona: {{ getUnitPrice() }} €</h3>
-</div>
-<a routerLink="/" class="data m-3">Volver</a>
-
+<a routerLink="/" class="button back"
+  ><svg
+    height="30px"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+    id="right-sign-1"
+    class="icon glyph"
+    fill="#000000"
+    transform="rotate(180)"
+  >
+    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+    <g
+      id="SVGRepo_tracerCarrier"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    ></g>
+    <g id="SVGRepo_iconCarrier">
+      <path
+        d="M15.64,6.23A1,1,0,0,0,14,7V9H3a1,1,0,0,0-1,1v4a1,1,0,0,0,1,1H14v2a1,1,0,0,0,.58.91A1,1,0,0,0,15,18a1,1,0,0,0,.64-.23l5.08-4.23a2,2,0,0,0,0-3.08Z"
+        style="fill: #000000"
+      ></path>
+    </g></svg
+></a>

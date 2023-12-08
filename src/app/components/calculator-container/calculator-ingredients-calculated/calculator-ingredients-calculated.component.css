@@ -1,0 +1,21 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 285px;
+  background-color: var(--color-1);
+  border: 3px solid black;
+  border-radius: 10px;
+  overflow-y: auto;
+  height: 430px;
+  font-weight: bolder;
+  padding: 10px;
+  font-size: large;
+  overflow-x: hidden;
+}
+.scroll {
+  max-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}

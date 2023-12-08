@@ -15,12 +15,50 @@
   overflow-x: hidden;
 }
 
+.ingredient-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#name{
+  width: 252px;
+  font-size: large;
+  text-align: center;
+}
+
+#quantity,#price{
+  width: 100px;
+  font-size: large;
+  text-align: center;
+}
+
+
+.col-full {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.col-half {
+  width: 50%;
+  box-sizing: border-box;
+}
+
 .scroll{
   max-height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
 
 }
+
+.list{
+max-height: 110px;
+}
+
 .button-container {
   display: flex;
   align-items: center;
@@ -31,12 +69,13 @@
 .button.add {
   margin-top: 8px; /* Ajusta el margen según tus preferencias */
   width: 215px;
+  height: 40px;
 }
 
 .button{
   margin: 5px;
   width: 100px;
-  height: 60px;
+  height: 40px;
 }
 
 .back{

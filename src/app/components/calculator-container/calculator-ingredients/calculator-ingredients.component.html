@@ -6,48 +6,42 @@
     [formGroup]="formIngredients"
     (ngSubmit)="newIngredient()"
   >
-    <div class="col">
-      <div class="ingredientTitle">Ingrediente</div>
-      <input type="text" name="name" id="name" formControlName="name" />
-      <div
-        *ngIf="formIngredients.get('name').hasError('required') && showErrorMsg"
-      >
-        El nombre no puede estar vacio
+  <ul class="ingredient-list">
+    <li class="row">
+      <div class="col-full">
+        <div class="ingredientTitle">Ingrediente</div>
+        <input type="text" name="name" id="name" formControlName="name" />
+        <div *ngIf="formIngredients.get('name').hasError('required') && showErrorMsg">
+          El nombre no puede estar vacío
+        </div>
       </div>
-    </div>
-    <div class="col">
-      <div class="ingredientTitle">Cantidad</div>
-      <input
-        type="number"
-        name="quantity"
-        id="quantity"
-        formControlName="quantity"
-      />
-      <div
-        *ngIf="
-          formIngredients.get('quantity').hasError('required') && showErrorMsg
-        "
-      >
-        Introduce una cantidad.
+    </li>
+
+    <li class="row">
+      <div class="col-half">
+        <div class="ingredientTitle">Cantidad</div>
+        <input type="number" name="quantity" id="quantity" formControlName="quantity" />
+        <div *ngIf="formIngredients.get('quantity').hasError('required') && showErrorMsg">
+          Introduce una cantidad.
+        </div>
+        <div *ngIf="formIngredients.get('quantity').hasError('min')">
+          La cantidad debe ser mayor que 0.
+        </div>
       </div>
-      <div *ngIf="formIngredients.get('quantity').hasError('min')">
-        La cantidad debe ser mayor que 0.
+<!-- *ngIf="getCalcPrice()" -->
+      <div class="col-half" >
+        <div class="ingredientTitle">Precio</div>
+        <input type="number" name="price" id="price" formControlName="price" />
+        <div *ngIf="formIngredients.get('price').hasError('required') && showErrorMsg">
+          Introduce un precio.
+        </div>
+        <div *ngIf="formIngredients.get('price').hasError('min')">
+          El precio debe ser mayor que 0.
+        </div>
       </div>
-    </div>
-    <div *ngIf="getCalcPrice()" class="col">
-      <div class="ingredientTitle">Precio</div>
-      <input type="number" name="price" id="price" formControlName="price" />
-      <div
-        *ngIf="
-          formIngredients.get('price').hasError('required') && showErrorMsg
-        "
-      >
-        Introduce un precio.
-      </div>
-      <div *ngIf="formIngredients.get('price').hasError('min')">
-        El precio debe ser mayor que 0.
-      </div>
-    </div>
+    </li>
+  </ul>
+
     <div class="col button-container">
       <button type="submit" class="button add">
         <svg
@@ -78,7 +72,7 @@
   <!-- </div> -->
   <!-- Añadir un componente para los ingredientes? -->
   <!-- <div class="container"> -->
-  <div class="row">
+  <div class="row list">
     <div class="col">
       <ul>
         <li *ngFor="let item of recipe.slice().reverse()">{{ item.name }}</li>
