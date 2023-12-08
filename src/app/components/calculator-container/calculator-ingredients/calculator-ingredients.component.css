@@ -25,18 +25,17 @@
   flex-wrap: wrap;
 }
 
-#name{
+.full{
   width: 252px;
   font-size: large;
   text-align: center;
 }
 
-#quantity,#price{
+.half{
   width: 100px;
   font-size: large;
   text-align: center;
 }
-
 
 .col-full {
   width: 100%;
@@ -55,9 +54,6 @@
 
 }
 
-.list{
-max-height: 110px;
-}
 
 .button-container {
   display: flex;
@@ -75,7 +71,7 @@ max-height: 110px;
 .button{
   margin: 5px;
   width: 100px;
-  height: 40px;
+  height: 42px;
 }
 
 .back{
@@ -88,9 +84,15 @@ max-height: 110px;
 }
 .bottom-buttons {
   position: absolute;
-  bottom: 0;
+  bottom: 30px;
   left: 0;
   width: 100%;
   text-align: center;
   padding: 10px; /* Agrega algún espacio entre los botones y el borde inferior */
+}
+
+.error{
+  color: var(--color-4);
+  font-weight: bold;
+  font-size: 1.2rem;
 }

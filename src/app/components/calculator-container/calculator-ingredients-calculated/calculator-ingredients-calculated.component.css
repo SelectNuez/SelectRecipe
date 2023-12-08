@@ -19,3 +19,17 @@
   overflow-y: auto;
   overflow-x: hidden;
 }
+.buttons-operations {
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+}
+
+.button.calc {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

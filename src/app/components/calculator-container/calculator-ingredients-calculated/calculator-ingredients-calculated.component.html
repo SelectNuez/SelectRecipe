@@ -3,8 +3,55 @@
 
   Numero comensales: {{ diners }}
   <div class="buttons-operations">
-    <button (click)="addDiner()">+</button>
-    <button (click)="discDiner()">-</button>
+    <button (click)="addDiner()" class="button calc">
+      <svg
+        fill="#000000"
+        width="30px"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+        id="plus"
+        class="icon glyph"
+        stroke="#000000"
+        stroke-width="1.248"
+      >
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g
+          id="SVGRepo_tracerCarrier"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></g>
+        <g id="SVGRepo_iconCarrier">
+          <path
+            d="M19,11H13V5a1,1,0,0,0-2,0v6H5a1,1,0,0,0,0,2h6v6a1,1,0,0,0,2,0V13h6a1,1,0,0,0,0-2Z"
+          ></path>
+        </g>
+      </svg>
+    </button>
+    <button (click)="discDiner()" class="button calc">
+      <svg
+      fill="#000000"
+      width="30px"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      id="minus"
+      class="icon glyph"
+      stroke="#000000"
+      stroke-width="1.248"
+    >
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g
+        id="SVGRepo_tracerCarrier"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      ></g>
+      <g id="SVGRepo_iconCarrier">
+        <path
+          d="M19,11H5a1,1,0,0,0,0,2h14a1,1,0,0,0,0-2Z"
+        ></path>
+      </g>
+    </svg>
+
+    </button>
   </div>
   <div class="scroll">
     <div class="row">

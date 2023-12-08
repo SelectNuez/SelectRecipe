@@ -26,7 +26,7 @@ export class UserService {
     });
   }
 
-  // token: string;
+
 
   setCookie(loginWork: any) {
     loginWork.then((user) => {
@@ -66,4 +66,6 @@ export class UserService {
   getUID(){
     return this.userSubject.value?.uid;
   }
+
+
 }

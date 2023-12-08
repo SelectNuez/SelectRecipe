@@ -21,9 +21,6 @@ export class MenuComponent implements OnInit {
 
   login() {
     this.userService.loginWithGoogle()
-      .then(response => {
-        console.log(response);
-      })
       .catch(error => console.log(error))
   }
 }

@@ -1,149 +1,177 @@
 <div class="container">
   <h3 id="ingredientes_titulo">Ingredientes Originales</h3>
-  <div class="scroll">
-  <form
-    class="row align-items-start"
-    [formGroup]="formIngredients"
-    (ngSubmit)="newIngredient()"
-  >
-  <ul class="ingredient-list">
-    <li class="row">
-      <div class="col-full">
-        <div class="ingredientTitle">Ingrediente</div>
-        <input type="text" name="name" id="name" formControlName="name" />
-        <div *ngIf="formIngredients.get('name').hasError('required') && showErrorMsg">
-          El nombre no puede estar vacío
-        </div>
-      </div>
-    </li>
-
-    <li class="row">
-      <div class="col-half">
-        <div class="ingredientTitle">Cantidad</div>
-        <input type="number" name="quantity" id="quantity" formControlName="quantity" />
-        <div *ngIf="formIngredients.get('quantity').hasError('required') && showErrorMsg">
-          Introduce una cantidad.
-        </div>
-        <div *ngIf="formIngredients.get('quantity').hasError('min')">
-          La cantidad debe ser mayor que 0.
-        </div>
-      </div>
-<!-- *ngIf="getCalcPrice()" -->
-      <div class="col-half" >
-        <div class="ingredientTitle">Precio</div>
-        <input type="number" name="price" id="price" formControlName="price" />
-        <div *ngIf="formIngredients.get('price').hasError('required') && showErrorMsg">
-          Introduce un precio.
-        </div>
-        <div *ngIf="formIngredients.get('price').hasError('min')">
-          El precio debe ser mayor que 0.
-        </div>
-      </div>
-    </li>
-  </ul>
-
-    <div class="col button-container">
-      <button type="submit" class="button add">
-        <svg
-          fill="#000000"
-          width="30px"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-          id="plus"
-          class="icon glyph"
-          stroke="#000000"
-          stroke-width="1.248"
-        >
-          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-          <g
-            id="SVGRepo_tracerCarrier"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          ></g>
-          <g id="SVGRepo_iconCarrier">
-            <path
-              d="M19,11H13V5a1,1,0,0,0-2,0v6H5a1,1,0,0,0,0,2h6v6a1,1,0,0,0,2,0V13h6a1,1,0,0,0,0-2Z"
-            ></path>
-          </g></svg
-        >Añadir Ingrediente
-      </button>
-    </div>
-  </form>
-  <!-- </div> -->
-  <!-- Añadir un componente para los ingredientes? -->
-  <!-- <div class="container"> -->
-  <div class="row list">
-    <div class="col">
-      <ul>
-        <li *ngFor="let item of recipe.slice().reverse()">{{ item.name }}</li>
-      </ul>
-    </div>
-    <div class="col">
-      <ul>
-        <li *ngFor="let item of recipe.slice().reverse()">{{ item.quantity }}</li>
-      </ul>
-    </div>
-    <div class="col" *ngIf="getCalcPrice()">
-      <ul>
-        <li *ngFor="let item of recipe.slice().reverse()">{{ item.price }}</li>
-      </ul>
-    </div>
-    <div class="col">
-      <ul>
-        <li *ngFor="let item of recipe.slice().reverse()">
-          <a class="data" (click)="deleteIngredient(item)"
-            ><svg
-              fill="#000000"
-              height="22px"
-              width="22px"
-              version="1.1"
-              id="Layer_1"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              viewBox="0 0 330 330"
-              xml:space="preserve"
+    <form
+      class="row align-items-start"
+      [formGroup]="formIngredients"
+      (ngSubmit)="newIngredient()"
+    >
+      <ul class="ingredient-list">
+        <li class="row">
+          <div class="col-full">
+            <div class="ingredientTitle">Ingrediente</div>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              class="full"
+              formControlName="name"
+            />
+            <div
+              *ngIf="
+                formIngredients.get('name').hasError('required') && showErrorMsg
+              "
+              class="error"
             >
-              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-              <g
-                id="SVGRepo_tracerCarrier"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              ></g>
-              <g id="SVGRepo_iconCarrier">
-                <g id="XMLID_6_">
-                  <g id="XMLID_11_">
-                    <path
-                      d="M240,121.076H30V275c0,8.284,6.716,15,15,15h60h37.596c19.246,24.348,49.031,40,82.404,40c57.897,0,105-47.103,105-105 C330,172.195,290.816,128.377,240,121.076z M225,300c-41.355,0-75-33.645-75-75s33.645-75,75-75s75,33.645,75,75 S266.355,300,225,300z"
-                    ></path>
-                  </g>
-                  <g id="XMLID_18_">
-                    <path
-                      d="M240,90h15c8.284,0,15-6.716,15-15s-6.716-15-15-15h-30h-15V15c0-8.284-6.716-15-15-15H75c-8.284,0-15,6.716-15,15v45H45 H15C6.716,60,0,66.716,0,75s6.716,15,15,15h15H240z M90,30h90v30h-15h-60H90V30z"
-                    ></path>
-                  </g>
-                  <g id="XMLID_23_">
-                    <path
-                      d="M256.819,193.181c-5.857-5.858-15.355-5.858-21.213,0L225,203.787l-10.606-10.606c-5.857-5.858-15.355-5.858-21.213,0 c-5.858,5.858-5.858,15.355,0,21.213L203.787,225l-10.606,10.606c-5.858,5.858-5.858,15.355,0,21.213 c2.929,2.929,6.768,4.394,10.606,4.394c3.839,0,7.678-1.465,10.607-4.394L225,246.213l10.606,10.606 c2.929,2.929,6.768,4.394,10.607,4.394c3.839,0,7.678-1.465,10.606-4.394c5.858-5.858,5.858-15.355,0-21.213L246.213,225 l10.606-10.606C262.678,208.535,262.678,199.039,256.819,193.181z"
-                    ></path>
-                  </g>
-                </g>
-              </g></svg
-          ></a>
+              El nombre no puede estar vacío
+            </div>
+          </div>
+        </li>
+
+        <li class="row">
+          <div
+            [ngClass]="{
+              'col-half': getCalcPrice(),
+              'col-full': !getCalcPrice()
+            }"
+          >
+            <div class="ingredientTitle">Cantidad</div>
+            <input
+              type="number"
+              name="quantity"
+              id="quantity"
+              formControlName="quantity"
+              [ngClass]="{
+                half: getCalcPrice(),
+                full: !getCalcPrice()
+              }"
+            />
+            <div
+              *ngIf="
+                formIngredients.get('quantity').hasError('required') &&
+                showErrorMsg
+              "
+              class="error"
+            >
+              Introduce una cantidad.
+            </div>
+            <div
+              *ngIf="formIngredients.get('quantity').hasError('min')"
+              class="error"
+            >
+              La cantidad debe ser mayor que 0.
+            </div>
+          </div>
+          <div class="col-half" *ngIf="getCalcPrice()">
+            <div class="ingredientTitle">Precio</div>
+            <input
+              type="number"
+              name="price"
+              id="price"
+              class="half"
+              formControlName="price"
+            />
+            <div
+              *ngIf="
+                formIngredients.get('price').hasError('required') &&
+                showErrorMsg
+              "
+              class="error"
+            >
+              Introduce un precio.
+            </div>
+            <div
+              *ngIf="formIngredients.get('price').hasError('min')"
+              class="error"
+            >
+              El precio debe ser mayor que 0.
+            </div>
+          </div>
         </li>
       </ul>
+
+      <div class="col button-container">
+        <button type="submit" class="button add">
+          Añadir Ingrediente
+        </button>
+      </div>
+    </form>
+    <div class="scroll">
+
+    <div class="row list">
+      <div class="col">
+        <ul>
+          <li *ngFor="let item of recipe.slice().reverse()">{{ item.name }}</li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul>
+          <li *ngFor="let item of recipe.slice().reverse()">
+            {{ item.quantity }}
+          </li>
+        </ul>
+      </div>
+      <div class="col" *ngIf="getCalcPrice()">
+        <ul>
+          <li *ngFor="let item of recipe.slice().reverse()">
+            {{ item.price }}
+          </li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul>
+          <li *ngFor="let item of recipe.slice().reverse()">
+            <a class="data" (click)="deleteIngredient(item)"
+              ><svg
+                fill="#000000"
+                height="22px"
+                width="22px"
+                version="1.1"
+                id="Layer_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 330 330"
+                xml:space="preserve"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <g id="XMLID_6_">
+                    <g id="XMLID_11_">
+                      <path
+                        d="M240,121.076H30V275c0,8.284,6.716,15,15,15h60h37.596c19.246,24.348,49.031,40,82.404,40c57.897,0,105-47.103,105-105 C330,172.195,290.816,128.377,240,121.076z M225,300c-41.355,0-75-33.645-75-75s33.645-75,75-75s75,33.645,75,75 S266.355,300,225,300z"
+                      ></path>
+                    </g>
+                    <g id="XMLID_18_">
+                      <path
+                        d="M240,90h15c8.284,0,15-6.716,15-15s-6.716-15-15-15h-30h-15V15c0-8.284-6.716-15-15-15H75c-8.284,0-15,6.716-15,15v45H45 H15C6.716,60,0,66.716,0,75s6.716,15,15,15h15H240z M90,30h90v30h-15h-60H90V30z"
+                      ></path>
+                    </g>
+                    <g id="XMLID_23_">
+                      <path
+                        d="M256.819,193.181c-5.857-5.858-15.355-5.858-21.213,0L225,203.787l-10.606-10.606c-5.857-5.858-15.355-5.858-21.213,0 c-5.858,5.858-5.858,15.355,0,21.213L203.787,225l-10.606,10.606c-5.858,5.858-5.858,15.355,0,21.213 c2.929,2.929,6.768,4.394,10.606,4.394c3.839,0,7.678-1.465,10.607-4.394L225,246.213l10.606,10.606 c2.929,2.929,6.768,4.394,10.607,4.394c3.839,0,7.678-1.465,10.606-4.394c5.858-5.858,5.858-15.355,0-21.213L246.213,225 l10.606-10.606C262.678,208.535,262.678,199.039,256.819,193.181z"
+                      ></path>
+                    </g>
+                  </g>
+                </g></svg
+            ></a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
-  </div>
   <div id="precioTotal"></div>
-  <div class="bottom-buttons">
-    <button id="calculate" class="button" (click)="saveRecipe()">
-      Calcular
-    </button>
-
-    <button class="button" onclick="location.reload()">Reiniciar</button>
-
 
 </div>
+<div class="bottom-buttons">
+  <button id="calculate" class="button" (click)="saveRecipe()">
+    Calcular
+  </button>
+
+  <button class="button" onclick="location.reload()">Reiniciar</button>
 </div>
 <a routerLink="/" class="button back"
   ><svg
