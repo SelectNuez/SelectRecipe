@@ -33,3 +33,13 @@
   justify-content: center;
 }
 
+.dinners{
+  font-size: xx-large;
+}
+.col{
+  margin-top: 10px;
+}
+
+li{
+  border-bottom: black solid 1px;
+}

@@ -1,7 +1,7 @@
 <div class="container">
   <h2 id="ingredientes_titulo">Ingredientes Calculados</h2>
 
-  Numero comensales: {{ diners }}
+  <p>Numero comensales</p>
   <div class="buttons-operations">
     <button (click)="addDiner()" class="button calc">
       <svg
@@ -27,6 +27,7 @@
         </g>
       </svg>
     </button>
+    <div class="dinners">{{ diners }}</div>
     <button (click)="discDiner()" class="button calc">
       <svg
       fill="#000000"
