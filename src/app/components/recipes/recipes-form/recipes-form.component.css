@@ -62,7 +62,7 @@
 
 .bottom-buttons {
   position: absolute;
-  bottom: 30px;
+  bottom: 0px;
   left: 0;
   width: 100%;
   text-align: center;

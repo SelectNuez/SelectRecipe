@@ -1,5 +1,5 @@
-<h2 id="ingredientes_titulo">{{ recipeName }}</h2>
 <div class="container">
+  <h2 id="ingredientes_titulo">{{ recipeName }}</h2>
   <form
     class="row align-items-start"
     [formGroup]="formRecipe"
@@ -42,15 +42,11 @@
         El precio debe ser mayor que 0.
       </div>
     </div>
-    <button type="submit">Introducir Ingrediente</button>
+    <div class="col button-container">
+      <button type="submit" class="button add">Introducir Ingrediente</button>
+    </div>
   </form>
-</div>
-<button id="calculate" (click)="saveRecipe()">Guardar</button>
 
-<button onclick="location.reload()">Volver a empezar</button>
-<a routerLink="/" class="data m-3">Volver</a>
-
-<div class="container">
   <div class="row">
     <div class="col">
       <ul>
@@ -119,3 +115,29 @@
     </div>
   </div>
 </div>
+<div class="bottom-buttons">
+  <button id="calculate" (click)="saveRecipe()" class="button">Guardar</button>
+</div>
+<a routerLink="/" class="button back"
+  ><svg
+    height="30px"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+    id="right-sign-1"
+    class="icon glyph"
+    fill="#000000"
+    transform="rotate(180)"
+  >
+    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+    <g
+      id="SVGRepo_tracerCarrier"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    ></g>
+    <g id="SVGRepo_iconCarrier">
+      <path
+        d="M15.64,6.23A1,1,0,0,0,14,7V9H3a1,1,0,0,0-1,1v4a1,1,0,0,0,1,1H14v2a1,1,0,0,0,.58.91A1,1,0,0,0,15,18a1,1,0,0,0,.64-.23l5.08-4.23a2,2,0,0,0,0-3.08Z"
+        style="fill: #000000"
+      ></path>
+    </g></svg
+></a>
