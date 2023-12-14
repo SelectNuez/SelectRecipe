@@ -97,29 +97,38 @@
     </form>
     <div class="scroll">
 
-    <div class="row list">
-      <div class="col">
+    <div class="row list"  *ngFor="let item of recipe.slice().reverse()">
+      <div [ngClass]="{
+        'col-3': getCalcPrice(),
+        'col-half': !getCalcPrice()
+      }">
         <ul>
-          <li *ngFor="let item of recipe.slice().reverse()">{{ item.name }}</li>
+          <li>{{ item.name }}</li>
         </ul>
       </div>
-      <div class="col">
-        <ul>
-          <li *ngFor="let item of recipe.slice().reverse()">
+      <div [ngClass]="{
+        'col-10': getCalcPrice(),
+        'col-25': !getCalcPrice()
+      }">        <ul>
+          <li >
             {{ item.quantity }}
           </li>
         </ul>
       </div>
-      <div class="col" *ngIf="getCalcPrice()">
+      <div class="col-10" *ngIf="getCalcPrice()">
         <ul>
-          <li *ngFor="let item of recipe.slice().reverse()">
+          <li >
             {{ item.price }}
           </li>
         </ul>
       </div>
-      <div class="col">
+      <div class="svg-container"
+      [ngClass]="{
+        'col-10': getCalcPrice(),
+        'col-25': !getCalcPrice()
+      }">
         <ul>
-          <li *ngFor="let item of recipe.slice().reverse()">
+          <li >
             <a class="data" (click)="deleteIngredient(item)"
               ><svg
                 fill="#000000"
@@ -171,7 +180,7 @@
     Calcular
   </button>
 
-  <button class="button" onclick="location.reload()">Reiniciar</button>
+  <!-- <button class="button" onclick="location.reload()">Reiniciar</button> -->
 </div>
 <a routerLink="/" class="button back"
   ><svg

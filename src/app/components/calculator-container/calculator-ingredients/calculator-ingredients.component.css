@@ -15,6 +15,11 @@
   overflow-x: hidden;
 }
 
+ul{
+  padding-left: 0;
+
+}
+
 .ingredient-list {
   list-style-type: none;
   padding: 0;
@@ -40,11 +45,43 @@
 .col-full {
   width: 100%;
   box-sizing: border-box;
+  text-align: center;
+
 }
 
 .col-half {
   width: 50%;
   box-sizing: border-box;
+  text-align: center;
+
+}
+
+.col-quarter{
+  width: 25%;
+  box-sizing: border-box;
+  text-align: center;
+
+}
+
+.col-3{
+  width: 33.33%;
+  box-sizing: border-box;
+  text-align: center;
+
+}
+
+.col-25{
+  width: 25%;
+  box-sizing: border-box;
+  text-align: center;
+
+}
+
+.col-10{
+  width: 10%;
+  box-sizing: border-box;
+  text-align: center;
+
 }
 
 .scroll{
@@ -95,4 +132,13 @@
   color: var(--color-4);
   font-weight: bold;
   font-size: 1.2rem;
+}
+
+.row.list {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }

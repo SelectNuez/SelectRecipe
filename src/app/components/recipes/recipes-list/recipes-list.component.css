@@ -45,6 +45,10 @@ ul {
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
 }
 
 h2{
@@ -64,4 +68,8 @@ a{
   text-decoration: none;
   color: var(--color-8);
   font-weight: bold;
+}
+
+.nameDinners{
+
 }

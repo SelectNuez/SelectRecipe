@@ -7,8 +7,8 @@
       <div *ngIf="recipes.length > 0">
         <li *ngFor="let recipe of recipes; let i = index">
         <div class="item">
-          <a [routerLink]="['/recipe-individual', recipe.name]" class="data">
-            {{ recipe.name }}
+          <a [routerLink]="['/recipe-individual', recipe.name]" class="data nameDinners">
+            {{ recipe.name }}&nbsp;&nbsp;
             <svg
               height="20px"
               viewBox="0 0 24 24"
