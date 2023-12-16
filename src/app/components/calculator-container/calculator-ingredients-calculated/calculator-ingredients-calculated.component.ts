@@ -17,6 +17,26 @@ export class CalculatorIngredientsCalculatedComponent implements OnInit {
   ngOnInit() {
     this.diners = this.dataDiners.newNumber;
     this.recipe = this.dataDiners.recipe;
+    /**
+     * Para pruebas
+      this.dataDiners.originalNumber = 5;
+      this.diners = 5;
+      this.dataDiners.calcPrice = true;
+    this.recipe = [
+      { name: 'Tomate', quantity: 2, price: 1.5 },
+      { name: 'Cebolla', quantity: 1, price: 0.5 },
+      { name: 'Pimiento', quantity: 1, price: 0.75 },
+      { name: 'Aceite', quantity: 1, price: 0.75 },
+      { name: 'Sal', quantity: 1, price: 0.25 },
+      { name: 'Huevos', quantity: 5, price: 1.5 },
+      { name: 'Patatas', quantity: 5, price: 1.5},
+      { name: 'Perejil', quantity: 1, price: 0.25 },
+      { name: 'Ajo', quantity: 1, price: 0.25 },
+      { name: 'Pimienta', quantity: 1, price: 0.25 },
+      { name: 'Leche', quantity: 1, price: 0.75 },
+    ];
+     */
+
 
     /*La línea this.recipeCalc = this.recipe;
     no crea una copia independiente de this.recipe.

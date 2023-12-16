@@ -1,5 +1,5 @@
 <div class="container">
-  <h3 id="ingredientes_titulo">Ingredientes Originales</h3>
+  <h2 id="ingredientes_titulo">Ingredientes Originales</h2>
     <form
       class="row align-items-start"
       [formGroup]="formIngredients"
@@ -98,35 +98,22 @@
     <div class="scroll">
 
     <div class="row list"  *ngFor="let item of recipe.slice().reverse()">
-      <div [ngClass]="{
-        'col-3': getCalcPrice(),
-        'col-half': !getCalcPrice()
-      }">
+      <div class="col name">
         <ul>
           <li>{{ item.name }}</li>
         </ul>
       </div>
-      <div [ngClass]="{
-        'col-10': getCalcPrice(),
-        'col-25': !getCalcPrice()
-      }">        <ul>
-          <li >
-            {{ item.quantity }}
-          </li>
-        </ul>
-      </div>
-      <div class="col-10" *ngIf="getCalcPrice()">
+      <div class="col">
         <ul>
-          <li >
-            {{ item.price }}
-          </li>
+          <li>{{ item.quantity }}</li>
         </ul>
       </div>
-      <div class="svg-container"
-      [ngClass]="{
-        'col-10': getCalcPrice(),
-        'col-25': !getCalcPrice()
-      }">
+      <div class="col" *ngIf="getCalcPrice()">
+        <ul>
+          <li>{{ item.price }}</li>
+        </ul>
+      </div>
+      <div class="svg-container col">
         <ul>
           <li >
             <a class="data" (click)="deleteIngredient(item)"

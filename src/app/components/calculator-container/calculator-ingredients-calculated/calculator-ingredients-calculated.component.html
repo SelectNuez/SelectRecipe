@@ -30,52 +30,49 @@
     <div class="dinners">{{ diners }}</div>
     <button (click)="discDiner()" class="button calc">
       <svg
-      fill="#000000"
-      width="30px"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-      id="minus"
-      class="icon glyph"
-      stroke="#000000"
-      stroke-width="1.248"
-    >
-      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-      <g
-        id="SVGRepo_tracerCarrier"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      ></g>
-      <g id="SVGRepo_iconCarrier">
-        <path
-          d="M19,11H5a1,1,0,0,0,0,2h14a1,1,0,0,0,0-2Z"
-        ></path>
-      </g>
-    </svg>
-
+        fill="#000000"
+        width="30px"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+        id="minus"
+        class="icon glyph"
+        stroke="#000000"
+        stroke-width="1.248"
+      >
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g
+          id="SVGRepo_tracerCarrier"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></g>
+        <g id="SVGRepo_iconCarrier">
+          <path d="M19,11H5a1,1,0,0,0,0,2h14a1,1,0,0,0,0-2Z"></path>
+        </g>
+      </svg>
     </button>
   </div>
   <div class="scroll">
-    <div class="row">
-      <div class="col">
+    <div class="row" *ngFor="let item of recipeCalc">
+      <div class="col name">
         <ul>
-          <li *ngFor="let item of recipeCalc">{{ item.name }}</li>
+          <li>{{ item.name }}</li>
         </ul>
       </div>
       <div class="col">
         <ul>
-          <li *ngFor="let item of recipeCalc">{{ item.quantity }}</li>
+          <li>{{ item.quantity }}</li>
         </ul>
       </div>
       <div class="col" *ngIf="getCalcPrice()">
         <ul>
-          <li *ngFor="let item of recipeCalc">{{ item.price }}</li>
+          <li>{{ item.price }}</li>
         </ul>
       </div>
     </div>
   </div>
   <div class="col" *ngIf="getCalcPrice()">
-    <h3>Precio total: {{ getTotalPrice() }} €</h3>
-    <h3>Precio por persona: {{ getUnitPrice() }} €</h3>
+    <h4>Total: {{ getTotalPrice() }} €</h4>
+    <h4>Por persona: {{ getUnitPrice() }} €</h4>
   </div>
 </div>
 <a routerLink="/" class="button back"
