@@ -19,11 +19,11 @@ export class CalculatorIngredientsComponent {
   ) {
     this.formIngredients = this.fb.group({
       name: ['', [Validators.required]],
-      quantity: ['', [Validators.required, Validators.min(0.0001)]],
+      quantity: ['', [Validators.required, Validators.min(0.01)]],
       price: [
         this.dataDiners.calcPrice ? '' : null,
         this.dataDiners.calcPrice
-          ? [Validators.required, Validators.min(0.0001)]
+          ? [Validators.required, Validators.min(0.01)]
           : null,
       ],
     });

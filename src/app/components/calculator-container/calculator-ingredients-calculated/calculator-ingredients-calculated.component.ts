@@ -15,12 +15,10 @@ export class CalculatorIngredientsCalculatedComponent implements OnInit {
   recipeCalc: any[];
 
   ngOnInit() {
-    // this.diners = this.dataDiners.newNumber;
-    // this.recipe = this.dataDiners.recipe;
+    this.diners = this.dataDiners.newNumber;
+    this.recipe = this.dataDiners.recipe;
     /**
      * Para pruebas
-
-     */
     this.dataDiners.originalNumber = 5;
     this.diners = 5;
     this.dataDiners.calcPrice = true;
@@ -37,6 +35,8 @@ export class CalculatorIngredientsCalculatedComponent implements OnInit {
       { name: 'Pimienta', quantity: 1, price: 0.25 },
       { name: 'Leche', quantity: 1, price: 0.75 },
     ];
+     */
+
 
     /*La línea this.recipeCalc = this.recipe;
     no crea una copia independiente de this.recipe.
@@ -67,7 +67,7 @@ export class CalculatorIngredientsCalculatedComponent implements OnInit {
   }
 
   discDiner() {
-    if (this.diners > 0) {
+    if (this.diners > 1) {
       this.diners--;
       this.calcRecipe();
     }

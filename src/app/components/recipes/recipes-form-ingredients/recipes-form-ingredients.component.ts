@@ -26,7 +26,7 @@ export class RecipesFormIngredientsComponent implements OnInit {
 
     this.formRecipe = this.fb.group({
       ingredientName: ['', [Validators.required]],
-      quantity: ['', [Validators.required, Validators.min(1)]],
+      quantity: ['', [Validators.required, Validators.min(0.01)]],
       price: [],
     });
   }
