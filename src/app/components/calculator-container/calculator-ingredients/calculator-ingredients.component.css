@@ -82,12 +82,7 @@ ul{
 }
 
 
-.button-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
-}
 
 .button.add {
   margin-top: 8px; /* Ajusta el margen según tus preferencias */
@@ -129,7 +124,6 @@ ul{
   display: flex;
   justify-content: center;
   width: 250px;
-  padding: 0;
   flex-wrap: nowrap;
   padding: 10px 0;
 }
@@ -152,4 +146,10 @@ li{
 
 .col.name {
   flex: 0 0 50%;
+}
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
 }

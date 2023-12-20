@@ -25,6 +25,8 @@ export class RecipeIndividualComponent implements OnInit {
       this.recipeDinners = this.recipe.dinners;
       this.recipeDinnersCalc = this.recipe.dinners;
     });
+
+
   }
 
   addDiner() {

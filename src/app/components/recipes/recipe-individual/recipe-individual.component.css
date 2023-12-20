@@ -4,6 +4,23 @@
   width: 150px;
 }
 
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 285px;
+  background-color: var(--color-1);
+  border: 3px solid black;
+  border-radius: 10px;
+  overflow-y: auto;
+  height: 430px;
+  font-weight: bolder;
+  padding: 10px;
+  font-size: large;
+  overflow-x: hidden;
+}
+
 .button.calc {
   width: 45px;
   height: 45px;
@@ -12,3 +29,49 @@
   justify-content: center;
 }
 
+.dinners{
+  font-size: xx-large;
+}
+
+p {
+  margin: 5px;
+}
+
+.scroll {
+  max-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.row{
+  border-bottom: black solid 1px;
+  display: flex;
+  justify-content: center;
+  width: 250px;
+  padding: 0;
+  flex-wrap: nowrap;
+  padding: 10px 0;
+}
+.col{
+  margin-top: 10px;
+  flex: 1;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+.col.name {
+  flex: 0 0 50%;
+}
+ul{
+  padding: 0;
+  margin: 0;
+}
+li{
+  margin-bottom: 5px;
+}

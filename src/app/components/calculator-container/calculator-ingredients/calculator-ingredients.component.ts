@@ -19,28 +19,28 @@ export class CalculatorIngredientsComponent {
   ) {
     this.formIngredients = this.fb.group({
       name: ['', [Validators.required]],
-      quantity: ['', [Validators.required, Validators.min(1)]],
+      quantity: ['', [Validators.required, Validators.min(0.0001)]],
       price: [
         this.dataDiners.calcPrice ? '' : null,
         this.dataDiners.calcPrice
-          ? [Validators.required, Validators.min(1)]
+          ? [Validators.required, Validators.min(0.0001)]
           : null,
       ],
     });
   }
 
   recipe: any[] = [
-    { name: 'Tomate', quantity: 2, price: 1.5 },
-    { name: 'Cebolla', quantity: 1, price: 0.5 },
-    { name: 'Pimiento', quantity: 1, price: 0.75 },
-    { name: 'Aceite', quantity: 1, price: 0.75 },
-    { name: 'Sal', quantity: 1, price: 0.25 },
-    { name: 'Huevos', quantity: 5, price: 1.5 },
-    { name: 'Patatas', quantity: 5, price: 1.5 },
-    { name: 'Perejil', quantity: 1, price: 0.25 },
-    { name: 'Ajo', quantity: 1, price: 0.25 },
-    { name: 'Pimienta', quantity: 1, price: 0.25 },
-    { name: 'Leche', quantity: 1, price: 0.75 },
+    // { name: 'Tomate', quantity: 2, price: 1.5 },
+    // { name: 'Cebolla', quantity: 1, price: 0.5 },
+    // { name: 'Pimiento', quantity: 1, price: 0.75 },
+    // { name: 'Aceite', quantity: 1, price: 0.75 },
+    // { name: 'Sal', quantity: 1, price: 0.25 },
+    // { name: 'Huevos', quantity: 5, price: 1.5 },
+    // { name: 'Patatas', quantity: 5, price: 1.5 },
+    // { name: 'Perejil', quantity: 1, price: 0.25 },
+    // { name: 'Ajo', quantity: 1, price: 0.25 },
+    // { name: 'Pimienta', quantity: 1, price: 0.25 },
+    // { name: 'Leche', quantity: 1, price: 0.75 },
   ];
 
   // Guardamos el ingrediente en la receta
@@ -67,11 +67,9 @@ export class CalculatorIngredientsComponent {
   }
 
   getCalcPrice() {
-    /**
-     * TEST
-     */
-    this.dataDiners.calcPrice = true;
-    /** */
+
+    // this.dataDiners.calcPrice = true;
+
     return this.dataDiners.calcPrice;
   }
 

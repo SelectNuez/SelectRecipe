@@ -15,6 +15,7 @@
         formControlName="recipeName"
       />
       <div
+        class="error"
         *ngIf="
           formRecipe.get('recipeName').hasError('required') && showErrorMsg
         "
@@ -29,6 +30,7 @@
         formControlName="recipeDinners"
       />
       <div
+        class="error"
         *ngIf="
           formRecipe.get('recipeDinners').hasError('required') && showErrorMsg
         "

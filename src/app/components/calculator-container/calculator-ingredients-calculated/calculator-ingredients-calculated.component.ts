@@ -15,28 +15,28 @@ export class CalculatorIngredientsCalculatedComponent implements OnInit {
   recipeCalc: any[];
 
   ngOnInit() {
-    this.diners = this.dataDiners.newNumber;
-    this.recipe = this.dataDiners.recipe;
+    // this.diners = this.dataDiners.newNumber;
+    // this.recipe = this.dataDiners.recipe;
     /**
      * Para pruebas
-      this.dataDiners.originalNumber = 5;
-      this.diners = 5;
-      this.dataDiners.calcPrice = true;
+
+     */
+    this.dataDiners.originalNumber = 5;
+    this.diners = 5;
+    this.dataDiners.calcPrice = true;
     this.recipe = [
-      { name: 'Tomate', quantity: 2, price: 1.5 },
+      { name: 'Tomate', quantity: 2.5, price: 1.5 },
       { name: 'Cebolla', quantity: 1, price: 0.5 },
       { name: 'Pimiento', quantity: 1, price: 0.75 },
       { name: 'Aceite', quantity: 1, price: 0.75 },
       { name: 'Sal', quantity: 1, price: 0.25 },
       { name: 'Huevos', quantity: 5, price: 1.5 },
-      { name: 'Patatas', quantity: 5, price: 1.5},
+      { name: 'Patatas', quantity: 5, price: 1.5 },
       { name: 'Perejil', quantity: 1, price: 0.25 },
       { name: 'Ajo', quantity: 1, price: 0.25 },
       { name: 'Pimienta', quantity: 1, price: 0.25 },
       { name: 'Leche', quantity: 1, price: 0.75 },
     ];
-     */
-
 
     /*La línea this.recipeCalc = this.recipe;
     no crea una copia independiente de this.recipe.
@@ -50,10 +50,14 @@ export class CalculatorIngredientsCalculatedComponent implements OnInit {
 
   calcRecipe() {
     for (let i = 0; i < this.recipe.length; i++) {
-      this.recipeCalc[i].quantity =
-        ((this.recipe[i].quantity * this.diners) / this.dataDiners.originalNumber).toFixed(2);
-      this.recipeCalc[i].price =
-        ((this.recipe[i].price * this.diners) / this.dataDiners.originalNumber).toFixed(2);
+      this.recipeCalc[i].quantity = parseFloat(
+        ((this.recipe[i].quantity * this.diners) /
+          this.dataDiners.originalNumber).toFixed(2)
+      ).toString();
+      this.recipeCalc[i].price = parseFloat(
+        ((this.recipe[i].price * this.diners) /
+          this.dataDiners.originalNumber).toFixed(2)
+      ).toString();
     }
   }
 
@@ -78,11 +82,22 @@ export class CalculatorIngredientsCalculatedComponent implements OnInit {
     for (let i = 0; i < this.recipe.length; i++) {
       totalPrice += this.recipe[i].price;
     }
-    totalPrice = +((totalPrice/this.dataDiners.originalNumber)*this.diners).toFixed(2);
+    totalPrice = +(
+      (totalPrice / this.dataDiners.originalNumber) *
+      this.diners
+    ).toFixed(2);
     return totalPrice;
   }
 
   getUnitPrice() {
-    return (this.diners == 0 ? 0 :this.getTotalPrice() / this.diners).toFixed(2)
+    const unitPrice = this.diners === 0 ? 0 : this.getTotalPrice() / this.diners;
+    const formattedPrice = parseFloat(unitPrice.toFixed(2)).toString();
+
+    // Verificar si los dos decimales son '00'
+    if (formattedPrice.endsWith('.00')) {
+      return String(Math.floor(unitPrice));
+    } else {
+      return formattedPrice;
+    }
   }
 }
