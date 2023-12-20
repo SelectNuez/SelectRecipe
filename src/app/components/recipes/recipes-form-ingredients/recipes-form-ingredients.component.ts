@@ -12,6 +12,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./recipes-form-ingredients.component.css'],
 })
 export class RecipesFormIngredientsComponent implements OnInit {
+  formRecipe: FormGroup;
   constructor(
     private userService: UserService,
     private dataBaseService: DatabaseService,
@@ -20,14 +21,10 @@ export class RecipesFormIngredientsComponent implements OnInit {
     private recipeListService: RecipeListService,
     private router: Router
   ) {
-    this.formRecipeName = this.fb.group({
-      recipeName: ['', [Validators.required]],
-    });
-
     this.formRecipe = this.fb.group({
       ingredientName: ['', [Validators.required]],
       quantity: ['', [Validators.required, Validators.min(0.01)]],
-      price: [],
+      price: ['', [Validators.min(0)]],
     });
   }
   ngOnInit(): void {
@@ -37,25 +34,18 @@ export class RecipesFormIngredientsComponent implements OnInit {
   }
   recipeName: string;
   recipeDinners: number;
-  formRecipeName: FormGroup;
-  formRecipe: FormGroup;
   settedRecipeName = false;
   showErrorMsg = false;
   recipeIngredients: Ingredient[] = [];
 
-  setRecipeName() {
-    if (this.formRecipeName.valid) {
-      this.recipeName = this.formRecipeName.value.recipeName;
-      this.settedRecipeName = true;
-      this.cdr.detectChanges();
-    } else {
-      this.showErrorMsg = true;
-    }
-  }
+
   recipe: Recipe[] = [];
 
   newIngredient() {
+    console.log(this.formRecipe.valid);
+    console.log(this.showErrorMsg);
     if (this.formRecipe.valid) {
+      console.log(this.formRecipe.value);
       let name = this.formRecipe.value.ingredientName;
       let quantity = this.formRecipe.value.quantity;
       let price = this.formRecipe.value.price;
@@ -66,6 +56,7 @@ export class RecipesFormIngredientsComponent implements OnInit {
 
       this.recipeIngredients.push(ingredient);
       this.formRecipe.reset();
+      this.showErrorMsg = false;
     } else {
       this.showErrorMsg = true;
     }

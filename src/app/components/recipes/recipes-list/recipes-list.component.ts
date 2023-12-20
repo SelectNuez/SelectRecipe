@@ -3,7 +3,6 @@ import { Ingredient, Recipe } from 'src/app/recipe.model';
 import { DatabaseService } from 'src/app/services/database.service';
 import { RecipeListService } from 'src/app/services/recipe-list.service';
 import { UserService } from 'src/app/services/user.service';
-
 @Component({
   selector: 'app-recipes-list',
   templateUrl: './recipes-list.component.html',

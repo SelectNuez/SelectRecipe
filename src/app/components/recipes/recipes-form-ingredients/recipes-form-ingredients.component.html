@@ -8,15 +8,26 @@
     <div class="col">
       <div class="ingredientTitle">Ingrediente</div>
       <input
+        required
         type="text"
         name="ingredientName"
         id="ingredientName"
         formControlName="ingredientName"
       />
+      <div
+        class="error"
+        *ngIf="
+          formRecipe.get('ingredientName').hasError('required') && showErrorMsg
+        "
+      >
+        Introduce un nombre.
+      </div>
     </div>
+
     <div class="col">
       <div class="ingredientTitle">Cantidad</div>
       <input
+        required
         type="number"
         name="quantity"
         id="quantity"
@@ -24,10 +35,14 @@
       />
       <div
         *ngIf="formRecipe.get('quantity').hasError('required') && showErrorMsg"
+        class="error"
       >
         Introduce una cantidad.
       </div>
-      <div *ngIf="formRecipe.get('quantity').hasError('min')">
+      <div
+        class="error"
+        *ngIf="formRecipe.get('quantity').hasError('min') && showErrorMsg"
+      >
         La cantidad debe ser mayor que 0.
       </div>
     </div>
@@ -35,11 +50,12 @@
       <!-- <div *ngIf="getCalcPrice()" class="col"> -->
       <div class="ingredientTitle">Precio</div>
       <input type="number" name="price" id="price" formControlName="price" />
-      <div *ngIf="formRecipe.get('price').hasError('required') && showErrorMsg">
-        Introduce un precio.
-      </div>
-      <div *ngIf="formRecipe.get('price').hasError('min')">
-        El precio debe ser mayor que 0.
+
+      <div
+        *ngIf="formRecipe.get('price').hasError('min') && showErrorMsg"
+        class="error"
+      >
+        El precio debe ser mayor o igual a 0.
       </div>
     </div>
     <div class="col button-container">

@@ -142,3 +142,10 @@ ul{
   flex-wrap: wrap;
   justify-content: space-between;
 }
+.error{
+  color: var(--color-4);
+  font-weight: bold;
+  font-size: 1.2rem;
+  justify-content: center;
+  width: 265px;
+}
