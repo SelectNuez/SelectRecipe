@@ -42,7 +42,7 @@
   margin: 5px;
   width: 119px;
   height: 60px;
-
+  font-size: medium;
 }
 
 .back {
@@ -53,7 +53,7 @@
 .error {
   color: var(--color-4);
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .set {

@@ -39,6 +39,8 @@ body {
   background: var(--color-3);
   border: 3px solid #000;
   border-radius: 5px;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 
@@ -61,3 +63,4 @@ ul{
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+

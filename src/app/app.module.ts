@@ -26,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RecipesFormComponent } from './components/recipes/recipes-form/recipes-form.component';
 import { RecipesFormIngredientsComponent } from './components/recipes/recipes-form-ingredients/recipes-form-ingredients.component';
 import { RecipeIndividualComponent } from './components/recipes/recipe-individual/recipe-individual.component';
+import { GuideComponent } from './components/guide/guide.component';
 
 const routes = [
   { path: 'about', component: AboutComponent },
@@ -43,6 +44,7 @@ const routes = [
     path: 'calculator-ingredients-calculated',
     component: CalculatorIngredientsCalculatedComponent,
   },
+  { path: 'guide', component: GuideComponent },
   { path: 'recipes-form', component: RecipesFormComponent },
   { path: 'recipes-form-ingredients', component: RecipesFormIngredientsComponent },
   { path: 'recipe-individual/:name', component: RecipeIndividualComponent },
@@ -66,6 +68,7 @@ const routes = [
     RecipesFormComponent,
     RecipesFormIngredientsComponent,
     RecipeIndividualComponent,
+    GuideComponent,
   ],
   imports: [
     BrowserModule,

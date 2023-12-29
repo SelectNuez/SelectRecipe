@@ -37,6 +37,14 @@
       >
         El numero de comensales no puede estar vacio
       </div>
+      <div
+      class="error"
+      *ngIf="
+        formRecipe.get('recipeDinners').hasError('min') && showErrorMsg
+      "
+    >
+      El numero de comensales no puede ser menor que 1
+    </div>
     </div>
     <div class="bottom-buttons">
       <button class="button" type="submit">Añadir ingredientes</button>
@@ -46,7 +54,7 @@
     </div>
   </form>
 </div>
-<a routerLink="/" class="data m-3 button back"
+<a routerLink="/recipes" class="data m-3 button back"
   ><svg
     height="30px"
     viewBox="0 0 24 24"
