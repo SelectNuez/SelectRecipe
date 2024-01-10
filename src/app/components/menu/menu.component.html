@@ -12,7 +12,6 @@
     <a routerLink="/about" class="data"> Sobre nosotros </a>
   </div>
   <div class="item" *ngIf="!(user | async)">
-    <!-- <a routerLink="/login" class="data" > Login </a> -->
     <button (click)="login()" class="data">
       Login
     </button>

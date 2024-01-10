@@ -11,12 +11,10 @@ import { AboutComponent } from './components/about/about.component';
 import { RouterModule } from '@angular/router';
 import { CalculatorComponent } from './components/calculator-container/calculator/calculator.component';
 import { RecipesListComponent } from './components/recipes/recipes-list/recipes-list.component';
-import { LoginComponent } from './components/login/login.component';
 import { ErrorComponent } from './components/error/error.component';
 import { CalculatorIngredientsComponent } from './components/calculator-container/calculator-ingredients/calculator-ingredients.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CalculatorIngredientsCalculatedComponent } from './components/calculator-container/calculator-ingredients-calculated/calculator-ingredients-calculated.component';
-import { RegisterComponent } from './components/register/register.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth, getAuth } from '@angular/fire/auth';
@@ -37,8 +35,6 @@ const routes = [
     component: RecipesListComponent,
     ...canActivate(() => redirectUnauthorizedTo(['/login'])),
   },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
   { path: 'calculator-ingredients', component: CalculatorIngredientsComponent },
   {
     path: 'calculator-ingredients-calculated',
@@ -60,11 +56,9 @@ const routes = [
     AboutComponent,
     CalculatorComponent,
     RecipesListComponent,
-    LoginComponent,
     CalculatorIngredientsComponent,
     CalculatorIngredientsCalculatedComponent,
     ErrorComponent,
-    RegisterComponent,
     RecipesFormComponent,
     RecipesFormIngredientsComponent,
     RecipeIndividualComponent,
