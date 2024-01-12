@@ -36,6 +36,7 @@ export class RecipesFormComponent {
     if(this.formRecipe.valid){
       this.setRecipeName();
       this.setRecipeDinners();
+      this.recipeListService.setRecipeEdit(false);
       this.router.navigate(['/recipes-form-ingredients']);
     }
     else{

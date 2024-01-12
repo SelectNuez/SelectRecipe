@@ -43,7 +43,9 @@ export class RecipesListComponent {
   }
 
 editRecipe(recipe: Recipe) {
+
     this.recipeListService.editRecipe(recipe);
+
   }
 
   deleteRecipe(recipe: Recipe) {

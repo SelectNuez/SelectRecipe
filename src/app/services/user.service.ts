@@ -1,8 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import {
   Auth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
   signOut,
   signInWithPopup,
   GoogleAuthProvider,
@@ -15,7 +13,7 @@ import { CookieService } from 'ngx-cookie-service';
 @Injectable({
   providedIn: 'root',
 })
-export class UserService {
+export class  UserService {
   private userSubject: BehaviorSubject<User | null> =
     new BehaviorSubject<User | null>(null);
   user$: Observable<User | null> = this.userSubject.asObservable();
@@ -38,15 +36,6 @@ export class UserService {
     return this.cookies.get('token');
   }
 
-  register({ email, password }: any) {
-    return createUserWithEmailAndPassword(this.auth, email, password);
-  }
-
-  login({ email, password }: any) {
-    const loginwork = signInWithEmailAndPassword(this.auth, email, password);
-    this.setCookie(loginwork);
-    return loginwork;
-  }
 
   loginWithGoogle() {
     const loginwork = signInWithPopup(this.auth, new GoogleAuthProvider());

@@ -1,7 +1,6 @@
 .container{
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 285px;
   background-color: var(--color-1);

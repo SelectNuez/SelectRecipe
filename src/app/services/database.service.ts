@@ -29,7 +29,6 @@ export class DatabaseService {
           if (!data) {
             return [];
           }
-
           // Filtrar las recetas según el UID del usuario
           this.recipes = Object.keys(data)
             .filter((key) => data[key]?.uID === UID)
@@ -56,7 +55,6 @@ export class DatabaseService {
                 recipeData.recipeID
               );
             });
-
           return this.recipes;
         })
       );
@@ -68,9 +66,7 @@ export class DatabaseService {
 
   saveRecipe(recipe: Recipe) {
     const recipeID = recipe.recipeID;
-    const UID = recipe.uID;
     const url = `https://selectrecipedev-default-rtdb.europe-west1.firebasedatabase.app/recipes/${recipeID}.json`;
-
     // Verificar si la receta ya existe
     if (this.recipes.find((existingRecipe) => existingRecipe.recipeID === recipeID)) {
       // La receta ya existe, realiza una actualización
@@ -102,7 +98,6 @@ export class DatabaseService {
   deleteRecipe(recipe: Recipe) {
     const recipeID = recipe.recipeID;
     const url = `https://selectrecipedev-default-rtdb.europe-west1.firebasedatabase.app/recipes/${recipeID}.json`;
-    console.log(url);
 
     return this.httpClient.delete(url).subscribe(
       () => {

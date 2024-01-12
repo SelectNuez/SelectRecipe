@@ -33,7 +33,7 @@ const routes = [
   {
     path: 'recipes',
     component: RecipesListComponent,
-    ...canActivate(() => redirectUnauthorizedTo(['/login'])),
+    ...canActivate(() => redirectUnauthorizedTo(['/'])),
   },
   { path: 'calculator-ingredients', component: CalculatorIngredientsComponent },
   {

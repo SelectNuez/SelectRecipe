@@ -17,9 +17,7 @@ export class RecipesFormIngredientsComponent implements OnInit {
     private userService: UserService,
     private dataBaseService: DatabaseService,
     private fb: FormBuilder,
-    private cdr: ChangeDetectorRef,
     private recipeListService: RecipeListService,
-    private router: Router
   ) {
     this.formRecipe = this.fb.group({
       ingredientName: ['', [Validators.required]],
@@ -30,7 +28,15 @@ export class RecipesFormIngredientsComponent implements OnInit {
   ngOnInit(): void {
     this.recipeName = this.recipeListService.getRecipeName();
     this.recipeDinners = this.recipeListService.getRecipeDinners();
-    this.recipeIngredients = this.recipeListService.getRecipeIngredients();
+    if(this.recipeListService.getRecipeEdit()) {
+      this.recipeIngredients = this.recipeListService.getRecipeIngredients();
+    }
+    else{
+      this.recipeIngredients = [];
+    }
+
+
+
   }
   recipeName: string;
   recipeDinners: number;
@@ -42,19 +48,17 @@ export class RecipesFormIngredientsComponent implements OnInit {
   recipe: Recipe[] = [];
 
   newIngredient() {
-    console.log(this.formRecipe.valid);
-    console.log(this.showErrorMsg);
     if (this.formRecipe.valid) {
-      console.log(this.formRecipe.value);
       let name = this.formRecipe.value.ingredientName;
       let quantity = this.formRecipe.value.quantity;
       let price = this.formRecipe.value.price;
 
       //Guardamos el ingrediente y lo metemos en el array ingredientes
-      if(price == null) price = 0;
+      if(!price) price = 0;
       const ingredient = new Ingredient(name, quantity, price);
 
       this.recipeIngredients.push(ingredient);
+      console.log(this.recipeIngredients);
       this.formRecipe.reset();
       this.showErrorMsg = false;
     } else {
