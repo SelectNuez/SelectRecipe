@@ -58,7 +58,6 @@ export class RecipesFormIngredientsComponent implements OnInit {
       const ingredient = new Ingredient(name, quantity, price);
 
       this.recipeIngredients.push(ingredient);
-      console.log(this.recipeIngredients);
       this.formRecipe.reset();
       this.showErrorMsg = false;
     } else {
