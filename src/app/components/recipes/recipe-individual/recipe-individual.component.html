@@ -69,7 +69,12 @@
         </div>
       </div>
     </div>
+    <div class="col">
+      <h4>Total: {{ getTotalPrice() }} €</h4>
+      <h4>Por persona: {{ getUnitPrice() }} €</h4>
+    </div>
 </div>
+
 <a routerLink="/recipes" class="button back"
   ><svg
     height="30px"

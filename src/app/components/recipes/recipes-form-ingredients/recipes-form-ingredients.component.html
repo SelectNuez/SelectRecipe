@@ -63,33 +63,17 @@
     </div>
   </form>
 
+
   <div class="row">
     <div class="col">
       <ul>
-        <li *ngFor="let ingredient of recipeIngredients">
-          {{ ingredient.name }}
-        </li>
-      </ul>
-    </div>
-    <div class="col">
-      <ul>
-        <li *ngFor="let ingredient of recipeIngredients">
-          {{ ingredient.quantity }}
-        </li>
-      </ul>
-    </div>
-    <div class="col">
-      <ul>
-        <li *ngFor="let ingredient of recipeIngredients">
-          {{ ingredient.price }}
-        </li>
-      </ul>
-    </div>
-    <div class="col">
-      <ul>
-        <li *ngFor="let ingredient of recipeIngredients">
-          <a class="data" (click)="deleteIngredient(ingredient)"
-            ><svg
+        <li *ngFor="let ingredient of recipeIngredients.slice().reverse()">
+          <div class="ingredient-info">
+            <span class="name">{{ ingredient.name }}</span>
+            <span class="quantity">{{ ingredient.quantity }}</span>
+            <span class="price">{{ ingredient.price }}</span>
+            <a class="data" (click)="deleteIngredient(ingredient)">
+              <svg
               fill="#000000"
               height="22px"
               width="22px"
@@ -125,11 +109,14 @@
                   </g>
                 </g>
               </g></svg
-          ></a>
+          >
+            </a>
+          </div>
         </li>
       </ul>
     </div>
   </div>
+
 </div>
 <div class="bottom-buttons">
   <button id="calculate" (click)="saveRecipe()" class="button">Guardar</button>

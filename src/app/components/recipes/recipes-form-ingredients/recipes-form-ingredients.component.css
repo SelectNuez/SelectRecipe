@@ -8,7 +8,8 @@
   border: 3px solid black;
   border-radius: 10px;
   overflow-y: auto;
-  height: 430px;
+  min-height: 440px;
+  max-height: 65vh;
   font-weight: bolder;
   padding: 10px;
   font-size: large;
@@ -125,7 +126,7 @@ ul{
   left: 0;
   width: 100%;
   text-align: center;
-  padding: 10px; /* Agrega algún espacio entre los botones y el borde inferior */
+  padding: 10px;
 }
 
 .error{
@@ -148,4 +149,38 @@ ul{
   font-size: 1.2rem;
   justify-content: center;
   width: 265px;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.ingredient-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  padding: 5px;
+  max-width: 260px;
+}
+
+.name {
+  flex: 1;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.details {
+  display: flex;
+  align-items: center;
+}
+
+.quantity,
+.price {
+  margin-left: 10px;
+}
+
+.data {
+  margin-left: 10px;
 }

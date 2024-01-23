@@ -56,4 +56,29 @@ export class RecipeIndividualComponent implements OnInit {
     // Actualizar la cantidad total de comensales
     this.recipeDinners = this.recipeDinnersCalc;
   }
+
+
+  getTotalPrice() {
+    let totalPrice = 0;
+    for (let i = 0; i < this.recipe.ingredients.length; i++) {
+      totalPrice += this.recipe.ingredients[i].price;
+    }
+    totalPrice = +(
+      (totalPrice / this.recipeDinners) *
+      this.recipeDinnersCalc
+    ).toFixed(2);
+    return totalPrice;
+  }
+
+  getUnitPrice() {
+    const unitPrice = this.recipeDinnersCalc === 0 ? 0 : this.getTotalPrice() / this.recipeDinnersCalc;
+    const formattedPrice = parseFloat(unitPrice.toFixed(2)).toString();
+
+    // Verificar si los dos decimales son '00'
+    if (formattedPrice.endsWith('.00')) {
+      return String(Math.floor(unitPrice));
+    } else {
+      return formattedPrice;
+    }
+  }
 }

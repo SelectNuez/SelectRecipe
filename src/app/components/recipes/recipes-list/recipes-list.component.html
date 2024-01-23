@@ -9,7 +9,7 @@
         <div class="item">
           <a [routerLink]="['/recipe-individual', recipe.name]" class="data nameDinners">
             {{ recipe.name }}&nbsp;&nbsp;
-            <svg
+            <div><svg
               height="20px"
               viewBox="0 0 24 24"
               fill="none"
@@ -31,7 +31,7 @@
                   fill="#000000"
                 ></path>
               </g></svg
-            >{{ recipe.dinners }}
+            >{{ recipe.dinners }}</div>
           </a><br>
           <a (click)="editRecipe(recipe)" class="data edit"
             ><svg
